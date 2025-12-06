@@ -1,0 +1,2606 @@
+{
+  "metadata": {
+    "session_id": "d2e0eb92c564",
+    "start_time": "2025-12-06T12:26:16.259748",
+    "end_time": "2025-12-06T12:38:11.259748",
+    "scenario_name": "Echolalia as Communication",
+    "scenario_description": "Structured activity time where children are working on puzzles at tables. Child_5 uses delayed echolalia functionally - repeating phrases from a favorite TV show to communicate needs and emotions. The teacher recognizes these patterns and responds to the underlying intent. When child_5 says 'to infinity and beyond' while reaching for a puzzle piece another child has, the teacher interprets this as a request and facilitates sharing. Later, child_5 echoes 'I'm not scared' (from a movie) when the lights flicker briefly, which the teacher acknowledges as self-reassurance. The session demonstrates how echolalia serves communicative functions.",
+    "num_children": 6,
+    "num_adults": 2,
+    "layer1_model_versions": null,
+    "layer2_llm_model": "claude-sonnet-4-20250514"
+  },
+  "actors": [
+    {
+      "id": "child_1",
+      "role": "child"
+    },
+    {
+      "id": "child_2",
+      "role": "child"
+    },
+    {
+      "id": "child_5",
+      "role": "child"
+    },
+    {
+      "id": "adult_1",
+      "role": "adult"
+    },
+    {
+      "id": "child_3",
+      "role": "child"
+    },
+    {
+      "id": "child_4",
+      "role": "child"
+    },
+    {
+      "id": "child_6",
+      "role": "child"
+    },
+    {
+      "id": "adult_2",
+      "role": "adult"
+    }
+  ],
+  "layer1_events": [
+    {
+      "event_id": "L1_a65cb257",
+      "timestamp": "2025-12-06T12:26:16.259748",
+      "_type": "AmbientAudioEvent",
+      "sound_type": "chair_scrape",
+      "intensity": "low",
+      "duration_ms": 400,
+      "location_estimate": null
+    },
+    {
+      "event_id": "L1_1fddfd17",
+      "timestamp": "2025-12-06T12:26:18.259748",
+      "_type": "PostureEvent",
+      "actor": {
+        "id": "child_1",
+        "role": "child"
+      },
+      "posture": "sitting",
+      "movement": "still",
+      "orientation": "engaged",
+      "location": {
+        "zone": "unknown",
+        "x": null,
+        "y": null
+      },
+      "movement_intensity": "low",
+      "is_repetitive": false,
+      "repetition_frequency": null
+    },
+    {
+      "event_id": "L1_d6af4b06",
+      "timestamp": "2025-12-06T12:26:19.259748",
+      "_type": "PostureEvent",
+      "actor": {
+        "id": "child_2",
+        "role": "child"
+      },
+      "posture": "sitting",
+      "movement": "still",
+      "orientation": "engaged",
+      "location": {
+        "zone": "unknown",
+        "x": null,
+        "y": null
+      },
+      "movement_intensity": "low",
+      "is_repetitive": false,
+      "repetition_frequency": null
+    },
+    {
+      "event_id": "L1_992893a4",
+      "timestamp": "2025-12-06T12:26:24.259748",
+      "_type": "ObjectEvent",
+      "actor": {
+        "id": "child_1",
+        "role": "child"
+      },
+      "object_type": "puzzle_piece",
+      "action": "pick_up",
+      "is_appropriate": null,
+      "shared_with": null
+    },
+    {
+      "event_id": "L1_e890fa88",
+      "timestamp": "2025-12-06T12:26:28.259748",
+      "_type": "GazeEvent",
+      "actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "direction": "at_object",
+      "target_actor": null,
+      "target_object": "puzzle",
+      "target_zone": null,
+      "duration_ms": 800,
+      "is_mutual": false,
+      "is_fleeting": false,
+      "is_sustained": false
+    },
+    {
+      "event_id": "L1_bd4a9152",
+      "timestamp": "2025-12-06T12:26:31.259748",
+      "_type": "PostureEvent",
+      "actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "posture": "sitting",
+      "movement": "fidgeting",
+      "orientation": "engaged",
+      "location": {
+        "zone": "unknown",
+        "x": null,
+        "y": null
+      },
+      "movement_intensity": "low",
+      "is_repetitive": true,
+      "repetition_frequency": null
+    },
+    {
+      "event_id": "L1_fe5c57f9",
+      "timestamp": "2025-12-06T12:26:34.259748",
+      "_type": "SpeechEvent",
+      "speaker": {
+        "id": "adult_1",
+        "role": "adult"
+      },
+      "transcription": "בואו נתחיל לעבוד על הפאזלים",
+      "word_count": 6,
+      "complexity": "sentence",
+      "vocal_type": "speech",
+      "target": "broadcast",
+      "prosody": null,
+      "duration_ms": 1800,
+      "gap_before_ms": null,
+      "is_overlap": false,
+      "previous_speaker": null,
+      "is_echolalia_candidate": false,
+      "echolalia_similarity": null,
+      "echolalia_delay_ms": null,
+      "is_perseveration_candidate": false
+    },
+    {
+      "event_id": "L1_60a9b120",
+      "timestamp": "2025-12-06T12:26:38.259748",
+      "_type": "GazeEvent",
+      "actor": {
+        "id": "child_3",
+        "role": "child"
+      },
+      "direction": "at_person",
+      "target_actor": {
+        "id": "adult_1",
+        "role": "adult"
+      },
+      "target_object": null,
+      "target_zone": null,
+      "duration_ms": 600,
+      "is_mutual": false,
+      "is_fleeting": false,
+      "is_sustained": false
+    },
+    {
+      "event_id": "L1_5d1eee00",
+      "timestamp": "2025-12-06T12:26:41.259748",
+      "_type": "ObjectEvent",
+      "actor": {
+        "id": "child_3",
+        "role": "child"
+      },
+      "object_type": "puzzle_piece",
+      "action": "manipulate",
+      "is_appropriate": null,
+      "shared_with": null
+    },
+    {
+      "event_id": "L1_02693aa5",
+      "timestamp": "2025-12-06T12:26:44.259748",
+      "_type": "ProximityEvent",
+      "actor": {
+        "id": "adult_1",
+        "role": "adult"
+      },
+      "target": {
+        "id": "child_1",
+        "role": "child"
+      },
+      "change_type": "approach",
+      "proximity_level": "social",
+      "distance_meters": null,
+      "movement_speed": null,
+      "actor_location": {
+        "zone": "unknown",
+        "x": null,
+        "y": null
+      }
+    },
+    {
+      "event_id": "L1_c970a802",
+      "timestamp": "2025-12-06T12:26:48.259748",
+      "_type": "AmbientAudioEvent",
+      "sound_type": "chair_scrape",
+      "intensity": "low",
+      "duration_ms": 300,
+      "location_estimate": null
+    },
+    {
+      "event_id": "L1_40001f3d",
+      "timestamp": "2025-12-06T12:26:51.259748",
+      "_type": "PostureEvent",
+      "actor": {
+        "id": "child_4",
+        "role": "child"
+      },
+      "posture": "sitting",
+      "movement": "reaching",
+      "orientation": "engaged",
+      "location": {
+        "zone": "unknown",
+        "x": null,
+        "y": null
+      },
+      "movement_intensity": "moderate",
+      "is_repetitive": false,
+      "repetition_frequency": null
+    },
+    {
+      "event_id": "L1_91eae055",
+      "timestamp": "2025-12-06T12:26:52.259748",
+      "_type": "ObjectEvent",
+      "actor": {
+        "id": "child_4",
+        "role": "child"
+      },
+      "object_type": "puzzle_piece",
+      "action": "pick_up",
+      "is_appropriate": null,
+      "shared_with": null
+    },
+    {
+      "event_id": "L1_bae1b414",
+      "timestamp": "2025-12-06T12:26:58.259748",
+      "_type": "GazeEvent",
+      "actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "direction": "scanning",
+      "target_actor": null,
+      "target_object": null,
+      "target_zone": null,
+      "duration_ms": 1200,
+      "is_mutual": false,
+      "is_fleeting": false,
+      "is_sustained": false
+    },
+    {
+      "event_id": "L1_086a4b83",
+      "timestamp": "2025-12-06T12:27:04.259748",
+      "_type": "SpeechEvent",
+      "speaker": {
+        "id": "child_2",
+        "role": "child"
+      },
+      "transcription": "איפה החלק הזה?",
+      "word_count": 3,
+      "complexity": "phrase",
+      "vocal_type": "speech",
+      "target": "adult",
+      "prosody": null,
+      "duration_ms": 1000,
+      "gap_before_ms": null,
+      "is_overlap": false,
+      "previous_speaker": null,
+      "is_echolalia_candidate": false,
+      "echolalia_similarity": null,
+      "echolalia_delay_ms": null,
+      "is_perseveration_candidate": false
+    },
+    {
+      "event_id": "L1_0bfeee44",
+      "timestamp": "2025-12-06T12:27:06.259748",
+      "_type": "GazeEvent",
+      "actor": {
+        "id": "adult_1",
+        "role": "adult"
+      },
+      "direction": "at_person",
+      "target_actor": {
+        "id": "child_2",
+        "role": "child"
+      },
+      "target_object": null,
+      "target_zone": null,
+      "duration_ms": 500,
+      "is_mutual": true,
+      "is_fleeting": false,
+      "is_sustained": false
+    },
+    {
+      "event_id": "L1_d0dd0876",
+      "timestamp": "2025-12-06T12:27:08.259748",
+      "_type": "ProximityEvent",
+      "actor": {
+        "id": "adult_1",
+        "role": "adult"
+      },
+      "target": {
+        "id": "child_2",
+        "role": "child"
+      },
+      "change_type": "approach",
+      "proximity_level": "personal",
+      "distance_meters": null,
+      "movement_speed": null,
+      "actor_location": {
+        "zone": "unknown",
+        "x": null,
+        "y": null
+      }
+    },
+    {
+      "event_id": "L1_aa32738b",
+      "timestamp": "2025-12-06T12:27:14.259748",
+      "_type": "ObjectEvent",
+      "actor": {
+        "id": "child_6",
+        "role": "child"
+      },
+      "object_type": "puzzle_piece",
+      "action": "hold",
+      "is_appropriate": null,
+      "shared_with": null
+    },
+    {
+      "event_id": "L1_20358494",
+      "timestamp": "2025-12-06T12:27:21.259748",
+      "_type": "PostureEvent",
+      "actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "posture": "sitting",
+      "movement": "rocking",
+      "orientation": "engaged",
+      "location": {
+        "zone": "unknown",
+        "x": null,
+        "y": null
+      },
+      "movement_intensity": "low",
+      "is_repetitive": true,
+      "repetition_frequency": null
+    },
+    {
+      "event_id": "L1_0f5fe29d",
+      "timestamp": "2025-12-06T12:27:28.259748",
+      "_type": "GazeEvent",
+      "actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "direction": "at_object",
+      "target_actor": null,
+      "target_object": "puzzle_piece",
+      "target_zone": null,
+      "duration_ms": 2000,
+      "is_mutual": false,
+      "is_fleeting": false,
+      "is_sustained": false
+    },
+    {
+      "event_id": "L1_bb262d47",
+      "timestamp": "2025-12-06T12:27:34.259748",
+      "_type": "ObjectEvent",
+      "actor": {
+        "id": "child_3",
+        "role": "child"
+      },
+      "object_type": "puzzle_piece",
+      "action": "manipulate",
+      "is_appropriate": null,
+      "shared_with": null
+    },
+    {
+      "event_id": "L1_0079f85d",
+      "timestamp": "2025-12-06T12:27:41.259748",
+      "_type": "AmbientAudioEvent",
+      "sound_type": "puzzle_piece_click",
+      "intensity": "low",
+      "duration_ms": 200,
+      "location_estimate": null
+    },
+    {
+      "event_id": "L1_faebb491",
+      "timestamp": "2025-12-06T12:27:48.259748",
+      "_type": "PostureEvent",
+      "actor": {
+        "id": "child_1",
+        "role": "child"
+      },
+      "posture": "sitting",
+      "movement": "reaching",
+      "orientation": "engaged",
+      "location": {
+        "zone": "unknown",
+        "x": null,
+        "y": null
+      },
+      "movement_intensity": "moderate",
+      "is_repetitive": false,
+      "repetition_frequency": null
+    },
+    {
+      "event_id": "L1_93cd837b",
+      "timestamp": "2025-12-06T12:27:54.259748",
+      "_type": "GazeEvent",
+      "actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "direction": "at_person",
+      "target_actor": {
+        "id": "child_3",
+        "role": "child"
+      },
+      "target_object": null,
+      "target_zone": null,
+      "duration_ms": 800,
+      "is_mutual": false,
+      "is_fleeting": false,
+      "is_sustained": false
+    },
+    {
+      "event_id": "L1_074eae1c",
+      "timestamp": "2025-12-06T12:28:01.259748",
+      "_type": "PostureEvent",
+      "actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "posture": "sitting",
+      "movement": "reaching",
+      "orientation": "engaged",
+      "location": {
+        "zone": "unknown",
+        "x": null,
+        "y": null
+      },
+      "movement_intensity": "moderate",
+      "is_repetitive": false,
+      "repetition_frequency": null
+    },
+    {
+      "event_id": "L1_3cec54ee",
+      "timestamp": "2025-12-06T12:28:11.259748",
+      "_type": "ObjectEvent",
+      "actor": {
+        "id": "child_3",
+        "role": "child"
+      },
+      "object_type": "puzzle_piece",
+      "action": "hold",
+      "is_appropriate": null,
+      "shared_with": null
+    },
+    {
+      "event_id": "L1_e9376da2",
+      "timestamp": "2025-12-06T12:28:16.259748",
+      "_type": "SpeechEvent",
+      "speaker": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "transcription": "to infinity and beyond",
+      "word_count": 4,
+      "complexity": "phrase",
+      "vocal_type": "speech",
+      "target": "peer",
+      "prosody": null,
+      "duration_ms": 1500,
+      "gap_before_ms": null,
+      "is_overlap": false,
+      "previous_speaker": null,
+      "is_echolalia_candidate": true,
+      "echolalia_similarity": 0.95,
+      "echolalia_delay_ms": null,
+      "is_perseveration_candidate": false
+    },
+    {
+      "event_id": "L1_40db3765",
+      "timestamp": "2025-12-06T12:28:18.259748",
+      "_type": "GazeEvent",
+      "actor": {
+        "id": "child_3",
+        "role": "child"
+      },
+      "direction": "at_person",
+      "target_actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "target_object": null,
+      "target_zone": null,
+      "duration_ms": 600,
+      "is_mutual": false,
+      "is_fleeting": false,
+      "is_sustained": false
+    },
+    {
+      "event_id": "L1_145d39c6",
+      "timestamp": "2025-12-06T12:28:20.259748",
+      "_type": "GazeEvent",
+      "actor": {
+        "id": "adult_1",
+        "role": "adult"
+      },
+      "direction": "at_person",
+      "target_actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "target_object": null,
+      "target_zone": null,
+      "duration_ms": 800,
+      "is_mutual": false,
+      "is_fleeting": false,
+      "is_sustained": false
+    },
+    {
+      "event_id": "L1_abb73e6a",
+      "timestamp": "2025-12-06T12:28:24.259748",
+      "_type": "PostureEvent",
+      "actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "posture": "sitting",
+      "movement": "still",
+      "orientation": "engaged",
+      "location": {
+        "zone": "unknown",
+        "x": null,
+        "y": null
+      },
+      "movement_intensity": "low",
+      "is_repetitive": false,
+      "repetition_frequency": null
+    },
+    {
+      "event_id": "L1_8fc497a7",
+      "timestamp": "2025-12-06T12:28:31.259748",
+      "_type": "AmbientAudioEvent",
+      "sound_type": "footsteps",
+      "intensity": "low",
+      "duration_ms": 800,
+      "location_estimate": null
+    },
+    {
+      "event_id": "L1_84f6403d",
+      "timestamp": "2025-12-06T12:28:36.259748",
+      "_type": "ProximityEvent",
+      "actor": {
+        "id": "adult_1",
+        "role": "adult"
+      },
+      "target": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "change_type": "approach",
+      "proximity_level": "personal",
+      "distance_meters": null,
+      "movement_speed": null,
+      "actor_location": {
+        "zone": "unknown",
+        "x": null,
+        "y": null
+      }
+    },
+    {
+      "event_id": "L1_3ca9aaf6",
+      "timestamp": "2025-12-06T12:28:41.259748",
+      "_type": "GazeEvent",
+      "actor": {
+        "id": "adult_1",
+        "role": "adult"
+      },
+      "direction": "at_person",
+      "target_actor": {
+        "id": "child_3",
+        "role": "child"
+      },
+      "target_object": null,
+      "target_zone": null,
+      "duration_ms": 500,
+      "is_mutual": false,
+      "is_fleeting": false,
+      "is_sustained": false
+    },
+    {
+      "event_id": "L1_afd10437",
+      "timestamp": "2025-12-06T12:28:46.259748",
+      "_type": "SpeechEvent",
+      "speaker": {
+        "id": "adult_1",
+        "role": "adult"
+      },
+      "transcription": "נראה שרועי רוצה את החלק הזה",
+      "word_count": 6,
+      "complexity": "sentence",
+      "vocal_type": "speech",
+      "target": "peer",
+      "prosody": null,
+      "duration_ms": 1800,
+      "gap_before_ms": null,
+      "is_overlap": false,
+      "previous_speaker": null,
+      "is_echolalia_candidate": false,
+      "echolalia_similarity": null,
+      "echolalia_delay_ms": null,
+      "is_perseveration_candidate": false
+    },
+    {
+      "event_id": "L1_3fc7f7f5",
+      "timestamp": "2025-12-06T12:28:48.259748",
+      "_type": "GazeEvent",
+      "actor": {
+        "id": "child_3",
+        "role": "child"
+      },
+      "direction": "at_person",
+      "target_actor": {
+        "id": "adult_1",
+        "role": "adult"
+      },
+      "target_object": null,
+      "target_zone": null,
+      "duration_ms": 700,
+      "is_mutual": true,
+      "is_fleeting": false,
+      "is_sustained": false
+    },
+    {
+      "event_id": "L1_14c066dc",
+      "timestamp": "2025-12-06T12:28:54.259748",
+      "_type": "SpeechEvent",
+      "speaker": {
+        "id": "adult_1",
+        "role": "adult"
+      },
+      "transcription": "אולי תוכל לעזור לו?",
+      "word_count": 4,
+      "complexity": "phrase",
+      "vocal_type": "speech",
+      "target": "peer",
+      "prosody": null,
+      "duration_ms": 1200,
+      "gap_before_ms": null,
+      "is_overlap": false,
+      "previous_speaker": null,
+      "is_echolalia_candidate": false,
+      "echolalia_similarity": null,
+      "echolalia_delay_ms": null,
+      "is_perseveration_candidate": false
+    },
+    {
+      "event_id": "L1_365d8e72",
+      "timestamp": "2025-12-06T12:29:01.259748",
+      "_type": "ObjectEvent",
+      "actor": {
+        "id": "child_3",
+        "role": "child"
+      },
+      "object_type": "puzzle_piece",
+      "action": "give",
+      "is_appropriate": null,
+      "shared_with": {
+        "id": "child_5",
+        "role": "child"
+      }
+    },
+    {
+      "event_id": "L1_546f0370",
+      "timestamp": "2025-12-06T12:29:02.259748",
+      "_type": "ObjectEvent",
+      "actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "object_type": "puzzle_piece",
+      "action": "receive",
+      "is_appropriate": null,
+      "shared_with": {
+        "id": "child_3",
+        "role": "child"
+      }
+    },
+    {
+      "event_id": "L1_fdc61c23",
+      "timestamp": "2025-12-06T12:29:04.259748",
+      "_type": "GazeEvent",
+      "actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "direction": "at_object",
+      "target_actor": null,
+      "target_object": "puzzle_piece",
+      "target_zone": null,
+      "duration_ms": 1000,
+      "is_mutual": false,
+      "is_fleeting": false,
+      "is_sustained": false
+    },
+    {
+      "event_id": "L1_d4d91cbb",
+      "timestamp": "2025-12-06T12:29:08.259748",
+      "_type": "SpeechEvent",
+      "speaker": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "transcription": null,
+      "word_count": 0,
+      "complexity": "vocalization",
+      "vocal_type": "vocalization",
+      "target": "self",
+      "prosody": null,
+      "duration_ms": 400,
+      "gap_before_ms": null,
+      "is_overlap": false,
+      "previous_speaker": null,
+      "is_echolalia_candidate": false,
+      "echolalia_similarity": null,
+      "echolalia_delay_ms": null,
+      "is_perseveration_candidate": false
+    },
+    {
+      "event_id": "L1_6da984ad",
+      "timestamp": "2025-12-06T12:29:14.259748",
+      "_type": "PostureEvent",
+      "actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "posture": "sitting",
+      "movement": "fidgeting",
+      "orientation": "engaged",
+      "location": {
+        "zone": "unknown",
+        "x": null,
+        "y": null
+      },
+      "movement_intensity": "low",
+      "is_repetitive": true,
+      "repetition_frequency": null
+    },
+    {
+      "event_id": "L1_0fe63676",
+      "timestamp": "2025-12-06T12:29:21.259748",
+      "_type": "ObjectEvent",
+      "actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "object_type": "puzzle_piece",
+      "action": "manipulate",
+      "is_appropriate": null,
+      "shared_with": null
+    },
+    {
+      "event_id": "L1_9c16222b",
+      "timestamp": "2025-12-06T12:29:28.259748",
+      "_type": "AmbientAudioEvent",
+      "sound_type": "puzzle_piece_click",
+      "intensity": "low",
+      "duration_ms": 150,
+      "location_estimate": null
+    },
+    {
+      "event_id": "L1_451e08f2",
+      "timestamp": "2025-12-06T12:29:34.259748",
+      "_type": "ProximityEvent",
+      "actor": {
+        "id": "adult_1",
+        "role": "adult"
+      },
+      "target": {
+        "id": "child_4",
+        "role": "child"
+      },
+      "change_type": "approach",
+      "proximity_level": "social",
+      "distance_meters": null,
+      "movement_speed": null,
+      "actor_location": {
+        "zone": "unknown",
+        "x": null,
+        "y": null
+      }
+    },
+    {
+      "event_id": "L1_8765e3a7",
+      "timestamp": "2025-12-06T12:29:41.259748",
+      "_type": "SpeechEvent",
+      "speaker": {
+        "id": "child_4",
+        "role": "child"
+      },
+      "transcription": "אני צריך עזרה",
+      "word_count": 3,
+      "complexity": "phrase",
+      "vocal_type": "speech",
+      "target": "adult",
+      "prosody": null,
+      "duration_ms": 1100,
+      "gap_before_ms": null,
+      "is_overlap": false,
+      "previous_speaker": null,
+      "is_echolalia_candidate": false,
+      "echolalia_similarity": null,
+      "echolalia_delay_ms": null,
+      "is_perseveration_candidate": false
+    },
+    {
+      "event_id": "L1_decefa0e",
+      "timestamp": "2025-12-06T12:29:44.259748",
+      "_type": "GazeEvent",
+      "actor": {
+        "id": "adult_1",
+        "role": "adult"
+      },
+      "direction": "at_person",
+      "target_actor": {
+        "id": "child_4",
+        "role": "child"
+      },
+      "target_object": null,
+      "target_zone": null,
+      "duration_ms": 600,
+      "is_mutual": true,
+      "is_fleeting": false,
+      "is_sustained": false
+    },
+    {
+      "event_id": "L1_d253382b",
+      "timestamp": "2025-12-06T12:29:51.259748",
+      "_type": "ObjectEvent",
+      "actor": {
+        "id": "child_6",
+        "role": "child"
+      },
+      "object_type": "puzzle_piece",
+      "action": "manipulate",
+      "is_appropriate": null,
+      "shared_with": null
+    },
+    {
+      "event_id": "L1_13ce611c",
+      "timestamp": "2025-12-06T12:30:01.259748",
+      "_type": "PostureEvent",
+      "actor": {
+        "id": "child_2",
+        "role": "child"
+      },
+      "posture": "sitting",
+      "movement": "reaching",
+      "orientation": "engaged",
+      "location": {
+        "zone": "unknown",
+        "x": null,
+        "y": null
+      },
+      "movement_intensity": "moderate",
+      "is_repetitive": false,
+      "repetition_frequency": null
+    },
+    {
+      "event_id": "L1_6bc6c197",
+      "timestamp": "2025-12-06T12:30:11.259748",
+      "_type": "AmbientAudioEvent",
+      "sound_type": "chair_scrape",
+      "intensity": "moderate",
+      "duration_ms": 500,
+      "location_estimate": null
+    },
+    {
+      "event_id": "L1_1d486e85",
+      "timestamp": "2025-12-06T12:30:18.259748",
+      "_type": "GazeEvent",
+      "actor": {
+        "id": "child_1",
+        "role": "child"
+      },
+      "direction": "at_object",
+      "target_actor": null,
+      "target_object": "puzzle",
+      "target_zone": null,
+      "duration_ms": 1500,
+      "is_mutual": false,
+      "is_fleeting": false,
+      "is_sustained": false
+    },
+    {
+      "event_id": "L1_e8c816d0",
+      "timestamp": "2025-12-06T12:30:24.259748",
+      "_type": "ObjectEvent",
+      "actor": {
+        "id": "child_1",
+        "role": "child"
+      },
+      "object_type": "puzzle_piece",
+      "action": "manipulate",
+      "is_appropriate": null,
+      "shared_with": null
+    },
+    {
+      "event_id": "L1_9869c903",
+      "timestamp": "2025-12-06T12:30:31.259748",
+      "_type": "PostureEvent",
+      "actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "posture": "sitting",
+      "movement": "rocking",
+      "orientation": "engaged",
+      "location": {
+        "zone": "unknown",
+        "x": null,
+        "y": null
+      },
+      "movement_intensity": "low",
+      "is_repetitive": true,
+      "repetition_frequency": null
+    },
+    {
+      "event_id": "L1_8ef4dedf",
+      "timestamp": "2025-12-06T12:30:41.259748",
+      "_type": "SpeechEvent",
+      "speaker": {
+        "id": "adult_2",
+        "role": "adult"
+      },
+      "transcription": "איך מתקדמים?",
+      "word_count": 2,
+      "complexity": "phrase",
+      "vocal_type": "speech",
+      "target": "broadcast",
+      "prosody": null,
+      "duration_ms": 800,
+      "gap_before_ms": null,
+      "is_overlap": false,
+      "previous_speaker": null,
+      "is_echolalia_candidate": false,
+      "echolalia_similarity": null,
+      "echolalia_delay_ms": null,
+      "is_perseveration_candidate": false
+    },
+    {
+      "event_id": "L1_d3fc0eca",
+      "timestamp": "2025-12-06T12:30:44.259748",
+      "_type": "GazeEvent",
+      "actor": {
+        "id": "child_6",
+        "role": "child"
+      },
+      "direction": "at_person",
+      "target_actor": {
+        "id": "adult_2",
+        "role": "adult"
+      },
+      "target_object": null,
+      "target_zone": null,
+      "duration_ms": 400,
+      "is_mutual": false,
+      "is_fleeting": false,
+      "is_sustained": false
+    },
+    {
+      "event_id": "L1_ccca863f",
+      "timestamp": "2025-12-06T12:30:51.259748",
+      "_type": "AmbientAudioEvent",
+      "sound_type": "puzzle_piece_click",
+      "intensity": "low",
+      "duration_ms": 200,
+      "location_estimate": null
+    },
+    {
+      "event_id": "L1_73758281",
+      "timestamp": "2025-12-06T12:30:58.259748",
+      "_type": "ObjectEvent",
+      "actor": {
+        "id": "child_2",
+        "role": "child"
+      },
+      "object_type": "puzzle_piece",
+      "action": "manipulate",
+      "is_appropriate": null,
+      "shared_with": null
+    },
+    {
+      "event_id": "L1_889cf9c9",
+      "timestamp": "2025-12-06T12:31:11.259748",
+      "_type": "PostureEvent",
+      "actor": {
+        "id": "child_3",
+        "role": "child"
+      },
+      "posture": "sitting",
+      "movement": "still",
+      "orientation": "engaged",
+      "location": {
+        "zone": "unknown",
+        "x": null,
+        "y": null
+      },
+      "movement_intensity": "low",
+      "is_repetitive": false,
+      "repetition_frequency": null
+    },
+    {
+      "event_id": "L1_edfb9122",
+      "timestamp": "2025-12-06T12:31:21.259748",
+      "_type": "GazeEvent",
+      "actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "direction": "scanning",
+      "target_actor": null,
+      "target_object": null,
+      "target_zone": null,
+      "duration_ms": 1000,
+      "is_mutual": false,
+      "is_fleeting": false,
+      "is_sustained": false
+    },
+    {
+      "event_id": "L1_57922917",
+      "timestamp": "2025-12-06T12:31:34.259748",
+      "_type": "AmbientAudioEvent",
+      "sound_type": "electrical_hum",
+      "intensity": "low",
+      "duration_ms": 2000,
+      "location_estimate": null
+    },
+    {
+      "event_id": "L1_f9c07bef",
+      "timestamp": "2025-12-06T12:31:41.259748",
+      "_type": "SpeechEvent",
+      "speaker": {
+        "id": "child_1",
+        "role": "child"
+      },
+      "transcription": "סיימתי!",
+      "word_count": 1,
+      "complexity": "single_word",
+      "vocal_type": "speech",
+      "target": "broadcast",
+      "prosody": null,
+      "duration_ms": 600,
+      "gap_before_ms": null,
+      "is_overlap": false,
+      "previous_speaker": null,
+      "is_echolalia_candidate": false,
+      "echolalia_similarity": null,
+      "echolalia_delay_ms": null,
+      "is_perseveration_candidate": false
+    },
+    {
+      "event_id": "L1_04fae10b",
+      "timestamp": "2025-12-06T12:31:43.259748",
+      "_type": "GazeEvent",
+      "actor": {
+        "id": "adult_1",
+        "role": "adult"
+      },
+      "direction": "at_person",
+      "target_actor": {
+        "id": "child_1",
+        "role": "child"
+      },
+      "target_object": null,
+      "target_zone": null,
+      "duration_ms": 500,
+      "is_mutual": false,
+      "is_fleeting": false,
+      "is_sustained": false
+    },
+    {
+      "event_id": "L1_dff40c47",
+      "timestamp": "2025-12-06T12:31:48.259748",
+      "_type": "ProximityEvent",
+      "actor": {
+        "id": "adult_1",
+        "role": "adult"
+      },
+      "target": {
+        "id": "child_1",
+        "role": "child"
+      },
+      "change_type": "approach",
+      "proximity_level": "personal",
+      "distance_meters": null,
+      "movement_speed": null,
+      "actor_location": {
+        "zone": "unknown",
+        "x": null,
+        "y": null
+      }
+    },
+    {
+      "event_id": "L1_b3a48de3",
+      "timestamp": "2025-12-06T12:31:58.259748",
+      "_type": "PostureEvent",
+      "actor": {
+        "id": "child_4",
+        "role": "child"
+      },
+      "posture": "sitting",
+      "movement": "fidgeting",
+      "orientation": "partially_turned",
+      "location": {
+        "zone": "unknown",
+        "x": null,
+        "y": null
+      },
+      "movement_intensity": "moderate",
+      "is_repetitive": true,
+      "repetition_frequency": null
+    },
+    {
+      "event_id": "L1_0b57bb6c",
+      "timestamp": "2025-12-06T12:32:11.259748",
+      "_type": "ObjectEvent",
+      "actor": {
+        "id": "child_6",
+        "role": "child"
+      },
+      "object_type": "puzzle_piece",
+      "action": "manipulate",
+      "is_appropriate": null,
+      "shared_with": null
+    },
+    {
+      "event_id": "L1_7267a108",
+      "timestamp": "2025-12-06T12:32:21.259748",
+      "_type": "GazeEvent",
+      "actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "direction": "at_object",
+      "target_actor": null,
+      "target_object": "puzzle",
+      "target_zone": null,
+      "duration_ms": 1200,
+      "is_mutual": false,
+      "is_fleeting": false,
+      "is_sustained": false
+    },
+    {
+      "event_id": "L1_3d7cf8a2",
+      "timestamp": "2025-12-06T12:32:31.259748",
+      "_type": "AmbientAudioEvent",
+      "sound_type": "puzzle_piece_click",
+      "intensity": "low",
+      "duration_ms": 180,
+      "location_estimate": null
+    },
+    {
+      "event_id": "L1_9ef2329b",
+      "timestamp": "2025-12-06T12:32:41.259748",
+      "_type": "PostureEvent",
+      "actor": {
+        "id": "child_2",
+        "role": "child"
+      },
+      "posture": "sitting",
+      "movement": "reaching",
+      "orientation": "engaged",
+      "location": {
+        "zone": "unknown",
+        "x": null,
+        "y": null
+      },
+      "movement_intensity": "moderate",
+      "is_repetitive": false,
+      "repetition_frequency": null
+    },
+    {
+      "event_id": "L1_cc0ac41c",
+      "timestamp": "2025-12-06T12:32:51.259748",
+      "_type": "SpeechEvent",
+      "speaker": {
+        "id": "adult_1",
+        "role": "adult"
+      },
+      "transcription": "כל הכבוד! פאזל יפה",
+      "word_count": 4,
+      "complexity": "phrase",
+      "vocal_type": "speech",
+      "target": "peer",
+      "prosody": null,
+      "duration_ms": 1200,
+      "gap_before_ms": null,
+      "is_overlap": false,
+      "previous_speaker": null,
+      "is_echolalia_candidate": false,
+      "echolalia_similarity": null,
+      "echolalia_delay_ms": null,
+      "is_perseveration_candidate": false
+    },
+    {
+      "event_id": "L1_ed08831d",
+      "timestamp": "2025-12-06T12:32:54.259748",
+      "_type": "GazeEvent",
+      "actor": {
+        "id": "child_1",
+        "role": "child"
+      },
+      "direction": "at_person",
+      "target_actor": {
+        "id": "adult_1",
+        "role": "adult"
+      },
+      "target_object": null,
+      "target_zone": null,
+      "duration_ms": 600,
+      "is_mutual": true,
+      "is_fleeting": false,
+      "is_sustained": false
+    },
+    {
+      "event_id": "L1_177e42c2",
+      "timestamp": "2025-12-06T12:33:06.259748",
+      "_type": "AmbientAudioEvent",
+      "sound_type": "electrical_flicker",
+      "intensity": "moderate",
+      "duration_ms": 400,
+      "location_estimate": null
+    },
+    {
+      "event_id": "L1_4db653d4",
+      "timestamp": "2025-12-06T12:33:08.259748",
+      "_type": "PostureEvent",
+      "actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "posture": "sitting",
+      "movement": "still",
+      "orientation": "engaged",
+      "location": {
+        "zone": "unknown",
+        "x": null,
+        "y": null
+      },
+      "movement_intensity": "low",
+      "is_repetitive": false,
+      "repetition_frequency": null
+    },
+    {
+      "event_id": "L1_267df2f6",
+      "timestamp": "2025-12-06T12:33:11.259748",
+      "_type": "GazeEvent",
+      "actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "direction": "unfocused",
+      "target_actor": null,
+      "target_object": null,
+      "target_zone": null,
+      "duration_ms": 800,
+      "is_mutual": false,
+      "is_fleeting": false,
+      "is_sustained": false
+    },
+    {
+      "event_id": "L1_05ec96d8",
+      "timestamp": "2025-12-06T12:33:13.259748",
+      "_type": "GazeEvent",
+      "actor": {
+        "id": "child_3",
+        "role": "child"
+      },
+      "direction": "unfocused",
+      "target_actor": null,
+      "target_object": null,
+      "target_zone": null,
+      "duration_ms": 600,
+      "is_mutual": false,
+      "is_fleeting": false,
+      "is_sustained": false
+    },
+    {
+      "event_id": "L1_f7cea659",
+      "timestamp": "2025-12-06T12:33:14.259748",
+      "_type": "GazeEvent",
+      "actor": {
+        "id": "child_2",
+        "role": "child"
+      },
+      "direction": "unfocused",
+      "target_actor": null,
+      "target_object": null,
+      "target_zone": null,
+      "duration_ms": 500,
+      "is_mutual": false,
+      "is_fleeting": false,
+      "is_sustained": false
+    },
+    {
+      "event_id": "L1_3c387592",
+      "timestamp": "2025-12-06T12:33:16.259748",
+      "_type": "SpeechEvent",
+      "speaker": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "transcription": "I'm not scared",
+      "word_count": 3,
+      "complexity": "phrase",
+      "vocal_type": "speech",
+      "target": "self",
+      "prosody": null,
+      "duration_ms": 1200,
+      "gap_before_ms": null,
+      "is_overlap": false,
+      "previous_speaker": null,
+      "is_echolalia_candidate": true,
+      "echolalia_similarity": 0.92,
+      "echolalia_delay_ms": null,
+      "is_perseveration_candidate": false
+    },
+    {
+      "event_id": "L1_14552c3a",
+      "timestamp": "2025-12-06T12:33:18.259748",
+      "_type": "GazeEvent",
+      "actor": {
+        "id": "adult_1",
+        "role": "adult"
+      },
+      "direction": "at_person",
+      "target_actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "target_object": null,
+      "target_zone": null,
+      "duration_ms": 1000,
+      "is_mutual": false,
+      "is_fleeting": false,
+      "is_sustained": false
+    },
+    {
+      "event_id": "L1_8400e806",
+      "timestamp": "2025-12-06T12:33:21.259748",
+      "_type": "PostureEvent",
+      "actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "posture": "sitting",
+      "movement": "rocking",
+      "orientation": "engaged",
+      "location": {
+        "zone": "unknown",
+        "x": null,
+        "y": null
+      },
+      "movement_intensity": "low",
+      "is_repetitive": true,
+      "repetition_frequency": null
+    },
+    {
+      "event_id": "L1_1e791b77",
+      "timestamp": "2025-12-06T12:33:26.259748",
+      "_type": "ProximityEvent",
+      "actor": {
+        "id": "adult_1",
+        "role": "adult"
+      },
+      "target": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "change_type": "approach",
+      "proximity_level": "personal",
+      "distance_meters": null,
+      "movement_speed": null,
+      "actor_location": {
+        "zone": "unknown",
+        "x": null,
+        "y": null
+      }
+    },
+    {
+      "event_id": "L1_11d53332",
+      "timestamp": "2025-12-06T12:33:31.259748",
+      "_type": "SpeechEvent",
+      "speaker": {
+        "id": "adult_1",
+        "role": "adult"
+      },
+      "transcription": "נכון, האורות רק ריצדו קצת",
+      "word_count": 5,
+      "complexity": "sentence",
+      "vocal_type": "speech",
+      "target": "peer",
+      "prosody": null,
+      "duration_ms": 1600,
+      "gap_before_ms": null,
+      "is_overlap": false,
+      "previous_speaker": null,
+      "is_echolalia_candidate": false,
+      "echolalia_similarity": null,
+      "echolalia_delay_ms": null,
+      "is_perseveration_candidate": false
+    },
+    {
+      "event_id": "L1_61607258",
+      "timestamp": "2025-12-06T12:33:34.259748",
+      "_type": "GazeEvent",
+      "actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "direction": "at_person",
+      "target_actor": {
+        "id": "adult_1",
+        "role": "adult"
+      },
+      "target_object": null,
+      "target_zone": null,
+      "duration_ms": 800,
+      "is_mutual": true,
+      "is_fleeting": false,
+      "is_sustained": false
+    },
+    {
+      "event_id": "L1_15a58efd",
+      "timestamp": "2025-12-06T12:33:41.259748",
+      "_type": "SpeechEvent",
+      "speaker": {
+        "id": "adult_1",
+        "role": "adult"
+      },
+      "transcription": "אתה חזק ויכול להמשיך",
+      "word_count": 4,
+      "complexity": "phrase",
+      "vocal_type": "speech",
+      "target": "peer",
+      "prosody": null,
+      "duration_ms": 1400,
+      "gap_before_ms": null,
+      "is_overlap": false,
+      "previous_speaker": null,
+      "is_echolalia_candidate": false,
+      "echolalia_similarity": null,
+      "echolalia_delay_ms": null,
+      "is_perseveration_candidate": false
+    },
+    {
+      "event_id": "L1_6b72a8b7",
+      "timestamp": "2025-12-06T12:33:46.259748",
+      "_type": "PostureEvent",
+      "actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "posture": "sitting",
+      "movement": "fidgeting",
+      "orientation": "engaged",
+      "location": {
+        "zone": "unknown",
+        "x": null,
+        "y": null
+      },
+      "movement_intensity": "low",
+      "is_repetitive": true,
+      "repetition_frequency": null
+    },
+    {
+      "event_id": "L1_2fdf99d1",
+      "timestamp": "2025-12-06T12:33:54.259748",
+      "_type": "ObjectEvent",
+      "actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "object_type": "puzzle_piece",
+      "action": "manipulate",
+      "is_appropriate": null,
+      "shared_with": null
+    },
+    {
+      "event_id": "L1_53c3d4e9",
+      "timestamp": "2025-12-06T12:34:01.259748",
+      "_type": "AmbientAudioEvent",
+      "sound_type": "chair_movement",
+      "intensity": "low",
+      "duration_ms": 600,
+      "location_estimate": null
+    },
+    {
+      "event_id": "L1_fa4b057c",
+      "timestamp": "2025-12-06T12:34:08.259748",
+      "_type": "GazeEvent",
+      "actor": {
+        "id": "child_4",
+        "role": "child"
+      },
+      "direction": "at_object",
+      "target_actor": null,
+      "target_object": "puzzle",
+      "target_zone": null,
+      "duration_ms": 1000,
+      "is_mutual": false,
+      "is_fleeting": false,
+      "is_sustained": false
+    },
+    {
+      "event_id": "L1_9d01cf9a",
+      "timestamp": "2025-12-06T12:34:14.259748",
+      "_type": "ObjectEvent",
+      "actor": {
+        "id": "child_4",
+        "role": "child"
+      },
+      "object_type": "puzzle_piece",
+      "action": "pick_up",
+      "is_appropriate": null,
+      "shared_with": null
+    },
+    {
+      "event_id": "L1_ab5897f1",
+      "timestamp": "2025-12-06T12:34:21.259748",
+      "_type": "SpeechEvent",
+      "speaker": {
+        "id": "child_6",
+        "role": "child"
+      },
+      "transcription": "איפה השאר?",
+      "word_count": 2,
+      "complexity": "phrase",
+      "vocal_type": "speech",
+      "target": "adult",
+      "prosody": null,
+      "duration_ms": 800,
+      "gap_before_ms": null,
+      "is_overlap": false,
+      "previous_speaker": null,
+      "is_echolalia_candidate": false,
+      "echolalia_similarity": null,
+      "echolalia_delay_ms": null,
+      "is_perseveration_candidate": false
+    },
+    {
+      "event_id": "L1_c3dd5136",
+      "timestamp": "2025-12-06T12:34:26.259748",
+      "_type": "ProximityEvent",
+      "actor": {
+        "id": "adult_2",
+        "role": "adult"
+      },
+      "target": {
+        "id": "child_6",
+        "role": "child"
+      },
+      "change_type": "approach",
+      "proximity_level": "social",
+      "distance_meters": null,
+      "movement_speed": null,
+      "actor_location": {
+        "zone": "unknown",
+        "x": null,
+        "y": null
+      }
+    },
+    {
+      "event_id": "L1_4b57b217",
+      "timestamp": "2025-12-06T12:34:31.259748",
+      "_type": "GazeEvent",
+      "actor": {
+        "id": "adult_2",
+        "role": "adult"
+      },
+      "direction": "at_person",
+      "target_actor": {
+        "id": "child_6",
+        "role": "child"
+      },
+      "target_object": null,
+      "target_zone": null,
+      "duration_ms": 500,
+      "is_mutual": false,
+      "is_fleeting": false,
+      "is_sustained": false
+    },
+    {
+      "event_id": "L1_31a8839a",
+      "timestamp": "2025-12-06T12:34:41.259748",
+      "_type": "AmbientAudioEvent",
+      "sound_type": "puzzle_piece_click",
+      "intensity": "low",
+      "duration_ms": 200,
+      "location_estimate": null
+    },
+    {
+      "event_id": "L1_7405a796",
+      "timestamp": "2025-12-06T12:34:51.259748",
+      "_type": "PostureEvent",
+      "actor": {
+        "id": "child_2",
+        "role": "child"
+      },
+      "posture": "sitting",
+      "movement": "reaching",
+      "orientation": "engaged",
+      "location": {
+        "zone": "unknown",
+        "x": null,
+        "y": null
+      },
+      "movement_intensity": "moderate",
+      "is_repetitive": false,
+      "repetition_frequency": null
+    },
+    {
+      "event_id": "L1_76a72c97",
+      "timestamp": "2025-12-06T12:34:54.259748",
+      "_type": "ObjectEvent",
+      "actor": {
+        "id": "child_2",
+        "role": "child"
+      },
+      "object_type": "puzzle_piece",
+      "action": "manipulate",
+      "is_appropriate": null,
+      "shared_with": null
+    },
+    {
+      "event_id": "L1_aa73141d",
+      "timestamp": "2025-12-06T12:35:01.259748",
+      "_type": "GazeEvent",
+      "actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "direction": "at_object",
+      "target_actor": null,
+      "target_object": "puzzle_piece",
+      "target_zone": null,
+      "duration_ms": 1500,
+      "is_mutual": false,
+      "is_fleeting": false,
+      "is_sustained": false
+    },
+    {
+      "event_id": "L1_59ab9c18",
+      "timestamp": "2025-12-06T12:35:11.259748",
+      "_type": "SpeechEvent",
+      "speaker": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "transcription": null,
+      "word_count": 0,
+      "complexity": "vocalization",
+      "vocal_type": "hum",
+      "target": "self",
+      "prosody": null,
+      "duration_ms": 800,
+      "gap_before_ms": null,
+      "is_overlap": false,
+      "previous_speaker": null,
+      "is_echolalia_candidate": false,
+      "echolalia_similarity": null,
+      "echolalia_delay_ms": null,
+      "is_perseveration_candidate": false
+    },
+    {
+      "event_id": "L1_0d5b6fb9",
+      "timestamp": "2025-12-06T12:35:18.259748",
+      "_type": "PostureEvent",
+      "actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "posture": "sitting",
+      "movement": "rocking",
+      "orientation": "engaged",
+      "location": {
+        "zone": "unknown",
+        "x": null,
+        "y": null
+      },
+      "movement_intensity": "low",
+      "is_repetitive": true,
+      "repetition_frequency": null
+    },
+    {
+      "event_id": "L1_d654910d",
+      "timestamp": "2025-12-06T12:35:31.259748",
+      "_type": "AmbientAudioEvent",
+      "sound_type": "footsteps",
+      "intensity": "low",
+      "duration_ms": 1000,
+      "location_estimate": null
+    },
+    {
+      "event_id": "L1_c1366e28",
+      "timestamp": "2025-12-06T12:35:41.259748",
+      "_type": "ObjectEvent",
+      "actor": {
+        "id": "child_3",
+        "role": "child"
+      },
+      "object_type": "puzzle_piece",
+      "action": "manipulate",
+      "is_appropriate": null,
+      "shared_with": null
+    },
+    {
+      "event_id": "L1_dcd880f0",
+      "timestamp": "2025-12-06T12:35:51.259748",
+      "_type": "GazeEvent",
+      "actor": {
+        "id": "child_1",
+        "role": "child"
+      },
+      "direction": "at_activity",
+      "target_actor": null,
+      "target_object": null,
+      "target_zone": null,
+      "duration_ms": 800,
+      "is_mutual": false,
+      "is_fleeting": false,
+      "is_sustained": false
+    },
+    {
+      "event_id": "L1_1da21d18",
+      "timestamp": "2025-12-06T12:36:01.259748",
+      "_type": "ProximityEvent",
+      "actor": {
+        "id": "child_1",
+        "role": "child"
+      },
+      "target": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "change_type": "approach",
+      "proximity_level": "social",
+      "distance_meters": null,
+      "movement_speed": null,
+      "actor_location": {
+        "zone": "unknown",
+        "x": null,
+        "y": null
+      }
+    },
+    {
+      "event_id": "L1_362bc7f7",
+      "timestamp": "2025-12-06T12:36:08.259748",
+      "_type": "SpeechEvent",
+      "speaker": {
+        "id": "child_1",
+        "role": "child"
+      },
+      "transcription": "איך עושים את זה?",
+      "word_count": 4,
+      "complexity": "phrase",
+      "vocal_type": "speech",
+      "target": "peer",
+      "prosody": null,
+      "duration_ms": 1000,
+      "gap_before_ms": null,
+      "is_overlap": false,
+      "previous_speaker": null,
+      "is_echolalia_candidate": false,
+      "echolalia_similarity": null,
+      "echolalia_delay_ms": null,
+      "is_perseveration_candidate": false
+    },
+    {
+      "event_id": "L1_173c5beb",
+      "timestamp": "2025-12-06T12:36:11.259748",
+      "_type": "GazeEvent",
+      "actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "direction": "at_person",
+      "target_actor": {
+        "id": "child_1",
+        "role": "child"
+      },
+      "target_object": null,
+      "target_zone": null,
+      "duration_ms": 600,
+      "is_mutual": true,
+      "is_fleeting": false,
+      "is_sustained": false
+    },
+    {
+      "event_id": "L1_a7522e38",
+      "timestamp": "2025-12-06T12:36:18.259748",
+      "_type": "ObjectEvent",
+      "actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "object_type": "puzzle_piece",
+      "action": "point_at",
+      "is_appropriate": null,
+      "shared_with": null
+    },
+    {
+      "event_id": "L1_c1dd3ce1",
+      "timestamp": "2025-12-06T12:36:21.259748",
+      "_type": "PostureEvent",
+      "actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "posture": "sitting",
+      "movement": "pointing",
+      "orientation": "engaged",
+      "location": {
+        "zone": "unknown",
+        "x": null,
+        "y": null
+      },
+      "movement_intensity": "moderate",
+      "is_repetitive": false,
+      "repetition_frequency": null
+    },
+    {
+      "event_id": "L1_e4193895",
+      "timestamp": "2025-12-06T12:36:31.259748",
+      "_type": "AmbientAudioEvent",
+      "sound_type": "puzzle_piece_click",
+      "intensity": "low",
+      "duration_ms": 180,
+      "location_estimate": null
+    },
+    {
+      "event_id": "L1_afaa071a",
+      "timestamp": "2025-12-06T12:36:41.259748",
+      "_type": "SpeechEvent",
+      "speaker": {
+        "id": "adult_1",
+        "role": "adult"
+      },
+      "transcription": "נהדר! כולם עובדים קשה",
+      "word_count": 4,
+      "complexity": "phrase",
+      "vocal_type": "speech",
+      "target": "broadcast",
+      "prosody": null,
+      "duration_ms": 1500,
+      "gap_before_ms": null,
+      "is_overlap": false,
+      "previous_speaker": null,
+      "is_echolalia_candidate": false,
+      "echolalia_similarity": null,
+      "echolalia_delay_ms": null,
+      "is_perseveration_candidate": false
+    },
+    {
+      "event_id": "L1_5d96f38a",
+      "timestamp": "2025-12-06T12:36:44.259748",
+      "_type": "GazeEvent",
+      "actor": {
+        "id": "child_6",
+        "role": "child"
+      },
+      "direction": "at_person",
+      "target_actor": {
+        "id": "adult_1",
+        "role": "adult"
+      },
+      "target_object": null,
+      "target_zone": null,
+      "duration_ms": 500,
+      "is_mutual": false,
+      "is_fleeting": false,
+      "is_sustained": false
+    },
+    {
+      "event_id": "L1_77759d36",
+      "timestamp": "2025-12-06T12:36:54.259748",
+      "_type": "ObjectEvent",
+      "actor": {
+        "id": "child_4",
+        "role": "child"
+      },
+      "object_type": "puzzle_piece",
+      "action": "manipulate",
+      "is_appropriate": null,
+      "shared_with": null
+    },
+    {
+      "event_id": "L1_9251556c",
+      "timestamp": "2025-12-06T12:37:04.259748",
+      "_type": "PostureEvent",
+      "actor": {
+        "id": "child_2",
+        "role": "child"
+      },
+      "posture": "sitting",
+      "movement": "still",
+      "orientation": "engaged",
+      "location": {
+        "zone": "unknown",
+        "x": null,
+        "y": null
+      },
+      "movement_intensity": "low",
+      "is_repetitive": false,
+      "repetition_frequency": null
+    },
+    {
+      "event_id": "L1_1cd5a7df",
+      "timestamp": "2025-12-06T12:37:14.259748",
+      "_type": "AmbientAudioEvent",
+      "sound_type": "puzzle_completion",
+      "intensity": "moderate",
+      "duration_ms": 400,
+      "location_estimate": null
+    },
+    {
+      "event_id": "L1_85d6a07c",
+      "timestamp": "2025-12-06T12:37:18.259748",
+      "_type": "SpeechEvent",
+      "speaker": {
+        "id": "child_2",
+        "role": "child"
+      },
+      "transcription": "גמרתי!",
+      "word_count": 1,
+      "complexity": "single_word",
+      "vocal_type": "speech",
+      "target": "broadcast",
+      "prosody": null,
+      "duration_ms": 500,
+      "gap_before_ms": null,
+      "is_overlap": false,
+      "previous_speaker": null,
+      "is_echolalia_candidate": false,
+      "echolalia_similarity": null,
+      "echolalia_delay_ms": null,
+      "is_perseveration_candidate": false
+    },
+    {
+      "event_id": "L1_bab71b21",
+      "timestamp": "2025-12-06T12:37:21.259748",
+      "_type": "GazeEvent",
+      "actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "direction": "at_person",
+      "target_actor": {
+        "id": "child_2",
+        "role": "child"
+      },
+      "target_object": null,
+      "target_zone": null,
+      "duration_ms": 800,
+      "is_mutual": false,
+      "is_fleeting": false,
+      "is_sustained": false
+    },
+    {
+      "event_id": "L1_97d29778",
+      "timestamp": "2025-12-06T12:37:28.259748",
+      "_type": "ProximityEvent",
+      "actor": {
+        "id": "adult_1",
+        "role": "adult"
+      },
+      "target": {
+        "id": "child_2",
+        "role": "child"
+      },
+      "change_type": "approach",
+      "proximity_level": "personal",
+      "distance_meters": null,
+      "movement_speed": null,
+      "actor_location": {
+        "zone": "unknown",
+        "x": null,
+        "y": null
+      }
+    },
+    {
+      "event_id": "L1_862473d3",
+      "timestamp": "2025-12-06T12:37:34.259748",
+      "_type": "SpeechEvent",
+      "speaker": {
+        "id": "adult_1",
+        "role": "adult"
+      },
+      "transcription": "מדהים! איזה פאזל יפה",
+      "word_count": 4,
+      "complexity": "phrase",
+      "vocal_type": "speech",
+      "target": "peer",
+      "prosody": null,
+      "duration_ms": 1200,
+      "gap_before_ms": null,
+      "is_overlap": false,
+      "previous_speaker": null,
+      "is_echolalia_candidate": false,
+      "echolalia_similarity": null,
+      "echolalia_delay_ms": null,
+      "is_perseveration_candidate": false
+    },
+    {
+      "event_id": "L1_062a711c",
+      "timestamp": "2025-12-06T12:37:44.259748",
+      "_type": "PostureEvent",
+      "actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "posture": "sitting",
+      "movement": "fidgeting",
+      "orientation": "engaged",
+      "location": {
+        "zone": "unknown",
+        "x": null,
+        "y": null
+      },
+      "movement_intensity": "low",
+      "is_repetitive": true,
+      "repetition_frequency": null
+    },
+    {
+      "event_id": "L1_8062d869",
+      "timestamp": "2025-12-06T12:37:51.259748",
+      "_type": "ObjectEvent",
+      "actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "object_type": "puzzle_piece",
+      "action": "manipulate",
+      "is_appropriate": null,
+      "shared_with": null
+    },
+    {
+      "event_id": "L1_178ebd16",
+      "timestamp": "2025-12-06T12:38:01.259748",
+      "_type": "GazeEvent",
+      "actor": {
+        "id": "child_3",
+        "role": "child"
+      },
+      "direction": "at_object",
+      "target_actor": null,
+      "target_object": "puzzle",
+      "target_zone": null,
+      "duration_ms": 1200,
+      "is_mutual": false,
+      "is_fleeting": false,
+      "is_sustained": false
+    },
+    {
+      "event_id": "L1_25a8dc11",
+      "timestamp": "2025-12-06T12:38:11.259748",
+      "_type": "AmbientAudioEvent",
+      "sound_type": "chair_scrape",
+      "intensity": "low",
+      "duration_ms": 300,
+      "location_estimate": null
+    }
+  ],
+  "layer2_events": [
+    {
+      "event_id": "L2_1843eae0",
+      "timestamp": "2025-12-06T12:26:16.259748",
+      "_type": "ContextEvent",
+      "activity_type": "structured_activity",
+      "activity_description": "puzzle work at tables",
+      "primary_zone": "work_tables",
+      "classroom_climate": "focused",
+      "noise_level": "low",
+      "is_transition": false,
+      "transition_from": null,
+      "transition_to": null,
+      "adults_present": 2,
+      "adult_attention_focus": "whole group",
+      "source_event_ids": [
+        "L1_a65cb257",
+        "L1_1fddfd17",
+        "L1_d6af4b06",
+        "L1_fe5c57f9"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "event_id": "L2_eacf410d",
+      "timestamp": "2025-12-06T12:26:31.259748",
+      "_type": "BehavioralEvent",
+      "actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "category": "stimming",
+      "description": "fidgeting while engaged with puzzle task",
+      "intensity": "low",
+      "apparent_emotion": "unclear",
+      "trigger": "unknown",
+      "trigger_description": null,
+      "regulation_effective": true,
+      "source_event_ids": [
+        "L1_bd4a9152"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "event_id": "L2_71f1a2be",
+      "timestamp": "2025-12-06T12:27:21.259748",
+      "_type": "BehavioralEvent",
+      "actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "category": "stimming",
+      "description": "rocking while working on puzzle",
+      "intensity": "moderate",
+      "apparent_emotion": "calm",
+      "trigger": "unknown",
+      "trigger_description": null,
+      "regulation_effective": true,
+      "source_event_ids": [
+        "L1_20358494"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "event_id": "L2_2b9b1cca",
+      "timestamp": "2025-12-06T12:28:16.259748",
+      "_type": "BehavioralEvent",
+      "actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "category": "social_approach",
+      "description": "functional use of delayed echolalia to request puzzle piece",
+      "intensity": "moderate",
+      "apparent_emotion": "unclear",
+      "trigger": "unmet_need",
+      "trigger_description": "wanting puzzle piece held by peer",
+      "regulation_effective": null,
+      "source_event_ids": [
+        "L1_e9376da2",
+        "L1_074eae1c",
+        "L1_98s"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "event_id": "L2_36db38a6",
+      "timestamp": "2025-12-06T12:28:16.259748",
+      "_type": "InteractionEvent",
+      "initiator": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "recipient": {
+        "id": "child_3",
+        "role": "child"
+      },
+      "interaction_type": "initiation",
+      "description": "used delayed echolalia 'to infinity and beyond' while reaching toward puzzle piece",
+      "quality": "successful",
+      "reciprocity_level": "moderate",
+      "content_type": "request",
+      "communicative_intent": "need_expression",
+      "adult_facilitated": false,
+      "adult_actor": null,
+      "source_event_ids": [
+        "L1_e9376da2",
+        "L1_105s",
+        "L1_3cec54ee"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "event_id": "L2_01a0ef53",
+      "timestamp": "2025-12-06T12:28:46.259748",
+      "_type": "InteractionEvent",
+      "initiator": {
+        "id": "adult_1",
+        "role": "adult"
+      },
+      "recipient": {
+        "id": "child_3",
+        "role": "child"
+      },
+      "interaction_type": "initiation",
+      "description": "interpreted child_5's echolalia and facilitated sharing",
+      "quality": "successful",
+      "reciprocity_level": "full",
+      "content_type": "request",
+      "communicative_intent": "social_connection",
+      "adult_facilitated": true,
+      "adult_actor": {
+        "id": "adult_1",
+        "role": "adult"
+      },
+      "source_event_ids": [
+        "L1_afd10437",
+        "L1_14c066dc"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "event_id": "L2_a2ec9b9d",
+      "timestamp": "2025-12-06T12:29:01.259748",
+      "_type": "InteractionEvent",
+      "initiator": {
+        "id": "child_3",
+        "role": "child"
+      },
+      "recipient": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "interaction_type": "help_giving",
+      "description": "shared puzzle piece after adult facilitation",
+      "quality": "successful",
+      "reciprocity_level": "full",
+      "content_type": "response",
+      "communicative_intent": "social_connection",
+      "adult_facilitated": true,
+      "adult_actor": null,
+      "source_event_ids": [
+        "L1_365d8e72",
+        "L1_546f0370"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "event_id": "L2_9842a30c",
+      "timestamp": "2025-12-06T12:29:08.259748",
+      "_type": "BehavioralEvent",
+      "actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "category": "emotional_expression",
+      "description": "positive vocalization after receiving puzzle piece",
+      "intensity": "low",
+      "apparent_emotion": "happy",
+      "trigger": "unknown",
+      "trigger_description": "successful communication and sharing interaction",
+      "regulation_effective": null,
+      "source_event_ids": [
+        "L1_d4d91cbb"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "event_id": "L2_f6b2ea37",
+      "timestamp": "2025-12-06T12:29:36.259748",
+      "_type": "ContextEvent",
+      "activity_type": "structured_activity",
+      "activity_description": "continued puzzle work with adult support",
+      "primary_zone": "work_tables",
+      "classroom_climate": "focused",
+      "noise_level": "low",
+      "is_transition": false,
+      "transition_from": null,
+      "transition_to": null,
+      "adults_present": 2,
+      "adult_attention_focus": "individual children",
+      "source_event_ids": [
+        "L1_451e08f2",
+        "L1_8765e3a7",
+        "L1_decefa0e"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "event_id": "L2_0f8f7b69",
+      "timestamp": "2025-12-06T12:30:31.259748",
+      "_type": "BehavioralEvent",
+      "actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "category": "stimming",
+      "description": "continued rocking during puzzle work",
+      "intensity": "moderate",
+      "apparent_emotion": "unclear",
+      "trigger": "unknown",
+      "trigger_description": null,
+      "regulation_effective": true,
+      "source_event_ids": [
+        "L1_9869c903"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "event_id": "L2_b45a3c07",
+      "timestamp": "2025-12-06T12:31:21.259748",
+      "_type": "BehavioralEvent",
+      "actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "category": "sensory_seeking",
+      "description": "scanning environment during task",
+      "intensity": "low",
+      "apparent_emotion": "unclear",
+      "trigger": "environmental",
+      "trigger_description": null,
+      "regulation_effective": null,
+      "source_event_ids": [
+        "L1_edfb9122"
+      ],
+      "confidence": 0.75
+    },
+    {
+      "event_id": "L2_1a97525c",
+      "timestamp": "2025-12-06T12:32:56.259748",
+      "_type": "ContextEvent",
+      "activity_type": "structured_activity",
+      "activity_description": "puzzle activity with environmental disruption",
+      "primary_zone": "work_tables",
+      "classroom_climate": "calm",
+      "noise_level": "low",
+      "is_transition": false,
+      "transition_from": null,
+      "transition_to": null,
+      "adults_present": 2,
+      "adult_attention_focus": "child_5",
+      "source_event_ids": [
+        "L1_177e42c2",
+        "L1_3c387592",
+        "L1_11d53332"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "event_id": "L2_3f2915ba",
+      "timestamp": "2025-12-06T12:33:11.259748",
+      "_type": "BehavioralEvent",
+      "actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "category": "sensory_avoidance",
+      "description": "momentary disorientation from light flicker",
+      "intensity": "moderate",
+      "apparent_emotion": "unclear",
+      "trigger": "sensory_input",
+      "trigger_description": "electrical flicker disrupting lighting",
+      "regulation_effective": null,
+      "source_event_ids": [
+        "L1_177e42c2",
+        "L1_267df2f6"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "event_id": "L2_55191f2b",
+      "timestamp": "2025-12-06T12:33:16.259748",
+      "_type": "BehavioralEvent",
+      "actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "category": "self_regulation",
+      "description": "used delayed echolalia for self-reassurance saying 'I'm not scared'",
+      "intensity": "moderate",
+      "apparent_emotion": "anxious",
+      "trigger": "sensory_input",
+      "trigger_description": "responding to light flicker with movie quote",
+      "regulation_effective": true,
+      "source_event_ids": [
+        "L1_3c387592"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "event_id": "L2_26e50c19",
+      "timestamp": "2025-12-06T12:33:21.259748",
+      "_type": "BehavioralEvent",
+      "actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "category": "stimming",
+      "description": "rocking after self-reassurance vocalization",
+      "intensity": "moderate",
+      "apparent_emotion": "unclear",
+      "trigger": "unknown",
+      "trigger_description": null,
+      "regulation_effective": true,
+      "source_event_ids": [
+        "L1_8400e806"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "event_id": "L2_03147e08",
+      "timestamp": "2025-12-06T12:33:31.259748",
+      "_type": "InteractionEvent",
+      "initiator": {
+        "id": "adult_1",
+        "role": "adult"
+      },
+      "recipient": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "interaction_type": "response",
+      "description": "acknowledged child's self-regulation and provided reassurance",
+      "quality": "successful",
+      "reciprocity_level": "full",
+      "content_type": "response",
+      "communicative_intent": "emotional_expression",
+      "adult_facilitated": true,
+      "adult_actor": {
+        "id": "adult_1",
+        "role": "adult"
+      },
+      "source_event_ids": [
+        "L1_11d53332",
+        "L1_15a58efd"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "event_id": "L2_4d82b217",
+      "timestamp": "2025-12-06T12:35:11.259748",
+      "_type": "BehavioralEvent",
+      "actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "category": "emotional_expression",
+      "description": "humming while working on puzzle",
+      "intensity": "low",
+      "apparent_emotion": "unclear",
+      "trigger": "unknown",
+      "trigger_description": null,
+      "regulation_effective": true,
+      "source_event_ids": [
+        "L1_59ab9c18"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "event_id": "L2_bdc3e08e",
+      "timestamp": "2025-12-06T12:36:08.259748",
+      "_type": "InteractionEvent",
+      "initiator": {
+        "id": "child_1",
+        "role": "child"
+      },
+      "recipient": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "interaction_type": "help_seeking",
+      "description": "asked child_5 for help with puzzle",
+      "quality": "successful",
+      "reciprocity_level": "moderate",
+      "content_type": "question",
+      "communicative_intent": "information_seeking",
+      "adult_facilitated": false,
+      "adult_actor": null,
+      "source_event_ids": [
+        "L1_362bc7f7"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "event_id": "L2_bd0e504b",
+      "timestamp": "2025-12-06T12:36:16.259748",
+      "_type": "ContextEvent",
+      "activity_type": "structured_activity",
+      "activity_description": "puzzle activity with peer collaboration",
+      "primary_zone": "work_tables",
+      "classroom_climate": "focused",
+      "noise_level": "low",
+      "is_transition": false,
+      "transition_from": null,
+      "transition_to": null,
+      "adults_present": 2,
+      "adult_attention_focus": "whole group",
+      "source_event_ids": [
+        "L1_afaa071a",
+        "L1_1cd5a7df",
+        "L1_85d6a07c"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "event_id": "L2_a4b45163",
+      "timestamp": "2025-12-06T12:36:18.259748",
+      "_type": "InteractionEvent",
+      "initiator": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "recipient": {
+        "id": "child_1",
+        "role": "child"
+      },
+      "interaction_type": "help_giving",
+      "description": "responded to help request by pointing at puzzle piece",
+      "quality": "successful",
+      "reciprocity_level": "moderate",
+      "content_type": "response",
+      "communicative_intent": "information_seeking",
+      "adult_facilitated": false,
+      "adult_actor": null,
+      "source_event_ids": [
+        "L1_173c5beb",
+        "L1_a7522e38",
+        "L1_c1dd3ce1"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "event_id": "L2_138f22d4",
+      "timestamp": "2025-12-06T12:37:21.259748",
+      "_type": "BehavioralEvent",
+      "actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "category": "social_approach",
+      "description": "attending to peer's success announcement",
+      "intensity": "low",
+      "apparent_emotion": "unclear",
+      "trigger": "peer_action",
+      "trigger_description": "child_2 announcing puzzle completion",
+      "regulation_effective": null,
+      "source_event_ids": [
+        "L1_bab71b21"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "event_id": "L2_f72c9e3d",
+      "timestamp": "2025-12-06T12:37:44.259748",
+      "_type": "BehavioralEvent",
+      "actor": {
+        "id": "child_5",
+        "role": "child"
+      },
+      "category": "task_engagement",
+      "description": "continued focused work on puzzle with fidgeting",
+      "intensity": "moderate",
+      "apparent_emotion": "unclear",
+      "trigger": "unknown",
+      "trigger_description": null,
+      "regulation_effective": true,
+      "source_event_ids": [
+        "L1_062a711c",
+        "L1_8062d869"
+      ],
+      "confidence": 0.85
+    }
+  ]
+}

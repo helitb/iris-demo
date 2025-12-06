@@ -1,0 +1,35 @@
+{
+  "name": "Peer Interaction Breakthrough",
+  "description": "Free play session in the play area. Child_2, who typically engages in solitary play, is playing with blocks alone. Child_4 approaches and watches. The teacher notices and provides gentle facilitation, suggesting they could build together. Child_2 initially ignores child_4, but after the teacher models sharing a block, child_2 hands a block to child_4. They engage in brief parallel play that evolves into cooperative building. Child_2 makes eye contact twice and says a few words. This is a significant social breakthrough for child_2.",
+  "duration_minutes": 8,
+  "num_children": 6,
+  "num_adults": 2,
+  "focus_children": [
+    {
+      "id": "child_2",
+      "description": "Typically solitary, minimal verbal output, rarely initiates peer interaction"
+    },
+    {
+      "id": "child_4",
+      "description": "Socially motivated, often approaches peers, persistent"
+    }
+  ],
+  "key_moments": [
+    {
+      "time": "00:01:00",
+      "description": "Child_4 approaches child_2 who is playing alone"
+    },
+    {
+      "time": "00:02:30",
+      "description": "Teacher provides facilitation"
+    },
+    {
+      "time": "00:04:00",
+      "description": "Child_2 shares a block - first sharing behavior"
+    },
+    {
+      "time": "00:06:00",
+      "description": "Cooperative play emerges with eye contact"
+    }
+  ]
+}

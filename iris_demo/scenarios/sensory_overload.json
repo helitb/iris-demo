@@ -1,0 +1,35 @@
+{
+  "name": "Sensory Overload During Circle Time",
+  "description": "Morning circle time begins calmly with 6 children and 2 adults. The teacher leads a singing activity. Around minute 3, construction noise begins outside the window (drilling). Child_3, who has high sensory sensitivity, starts showing signs of distress - first covering ears, then rocking. The teaching assistant notices and guides child_3 to the sensory corner. Meanwhile, child_1 and child_2 are engaged in the activity and attempt to interact with each other. By minute 8, the drilling stops, and child_3 is supported back to the group with a fidget toy. The session ends with a calming song.",
+  "duration_minutes": 10,
+  "num_children": 6,
+  "num_adults": 2,
+  "focus_children": [
+    {
+      "id": "child_3",
+      "description": "High sensory sensitivity, uses rocking and ear-covering as self-regulation strategies"
+    },
+    {
+      "id": "child_1",
+      "description": "Verbally engaged, often initiates peer interactions"
+    }
+  ],
+  "key_moments": [
+    {
+      "time": "00:03:00",
+      "description": "Construction drilling begins outside"
+    },
+    {
+      "time": "00:03:30",
+      "description": "Child_3 shows first signs of sensory distress"
+    },
+    {
+      "time": "00:05:00",
+      "description": "Teaching assistant guides child_3 to sensory corner"
+    },
+    {
+      "time": "00:08:00",
+      "description": "Drilling stops, child_3 begins recovery"
+    }
+  ]
+}

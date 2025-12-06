@@ -1,0 +1,45 @@
+# IRIS Demo Configuration
+
+# Default model to use
+default_model: claude-sonnet-4-20250514
+
+# Available models
+# Format: display_name -> model_id
+# Models with ":" use aisuite, others use Anthropic SDK directly
+models:
+  # Anthropic (direct SDK with streaming)
+  "Claude Sonnet 4": claude-sonnet-4-20250514
+  "Claude Opus 4": claude-opus-4-20250514
+  
+  # Anthropic via aisuite (batch mode)
+  "Claude 3.5 Sonnet (aisuite)": anthropic:claude-3-5-sonnet-20241022
+  "Claude 3.5 Haiku (aisuite)": anthropic:claude-3-5-haiku-20241022
+  
+  # OpenAI via aisuite
+  "GPT-4o": openai:gpt-4o
+  "GPT-4o-mini": openai:gpt-4o-mini
+  "GPT-4-turbo": openai:gpt-4-turbo
+  
+  # Google via aisuite
+  "Gemini 1.5 Pro": google:gemini-1.5-pro
+  "Gemini 2.0 Flash": google:gemini-2.0-flash-exp
+
+# Generation settings
+generation:
+  layer1_max_tokens: 8000
+  layer2_max_tokens: 4000
+  report_max_tokens: 2000
+
+# Session auto-save settings
+sessions:
+  auto_save: true
+  directory: sessions
+
+# Reports settings
+reports:
+  auto_save: true
+  directory: reports
+
+# Scenarios settings  
+scenarios:
+  directory: scenarios

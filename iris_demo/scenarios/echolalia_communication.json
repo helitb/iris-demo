@@ -1,0 +1,31 @@
+{
+  "name": "Echolalia as Communication",
+  "description": "Structured activity time where children are working on puzzles at tables. Child_5 uses delayed echolalia functionally - repeating phrases from a favorite TV show to communicate needs and emotions. The teacher recognizes these patterns and responds to the underlying intent. When child_5 says 'to infinity and beyond' while reaching for a puzzle piece another child has, the teacher interprets this as a request and facilitates sharing. Later, child_5 echoes 'I'm not scared' (from a movie) when the lights flicker briefly, which the teacher acknowledges as self-reassurance. The session demonstrates how echolalia serves communicative functions.",
+  "duration_minutes": 12,
+  "num_children": 6,
+  "num_adults": 2,
+  "focus_children": [
+    {
+      "id": "child_5",
+      "description": "Uses delayed echolalia functionally, verbal but primarily through scripted phrases, strong visual memory"
+    }
+  ],
+  "key_moments": [
+    {
+      "time": "00:02:00",
+      "description": "Child_5 uses 'to infinity and beyond' to request puzzle piece"
+    },
+    {
+      "time": "00:03:30",
+      "description": "Teacher interprets and facilitates the request"
+    },
+    {
+      "time": "00:07:00",
+      "description": "Lights flicker, child_5 uses self-reassurance script"
+    },
+    {
+      "time": "00:08:00",
+      "description": "Teacher validates the emotional regulation attempt"
+    }
+  ]
+}
