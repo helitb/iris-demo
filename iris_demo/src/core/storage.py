@@ -7,9 +7,11 @@ Save and load sessions to/from JSON for persistence and review.
 import json
 import os
 from datetime import datetime
+from pathlib import Path
 from typing import Optional, Dict, Any, List
-from dataclasses import asdict
 
+from .llm import get_config
+from .privacy import PrivacyValidationReport
 from .schema import (
     Actor, ActorRole, Location, ClassroomZone, Intensity,
     Session, SessionMetadata,
@@ -29,6 +31,7 @@ from .schema import (
     EmotionalState, TriggerType,
     InteractionType, InteractionQuality,
     ActivityType, ClassroomClimate,
+    Layer2Event,
 )
 
 
@@ -530,3 +533,67 @@ def list_saved_sessions(directory: str) -> List[Dict[str, Any]]:
                 print(f"Error reading {filename}: {e}")
     
     return sorted(sessions, key=lambda s: s.get("start_time", ""), reverse=True)
+
+
+def save_l2_event_log(
+    l1_log_id: str,
+    l2_events: List[Layer2Event],
+    llm_model: Optional[str] = None,
+    directory: Optional[str] = None,
+) -> str:
+    """Save Layer 2 events along with metadata and return the filename."""
+
+    config = get_config()
+    if directory is None:
+        directory = config.sessions_directory
+
+    base_dir = Path(directory)
+    l2_dir = base_dir / "l2_event_logs"
+    l2_dir.mkdir(parents=True, exist_ok=True)
+
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    filename = f"{l1_log_id}_L2_events_{timestamp}.json"
+    filepath = l2_dir / filename
+
+    payload = {
+        "l1_log_id": l1_log_id,
+        "llm_model": llm_model,
+        "timestamp_created": datetime.now().isoformat(),
+        "total_l2_events": len(l2_events),
+        "l2_events": [serialize_event(e) for e in l2_events],
+    }
+
+    with open(filepath, "w", encoding="utf-8") as f:
+        json.dump(payload, f, ensure_ascii=False, indent=2)
+
+    return filename
+
+
+def load_l2_event_log(path: str) -> Dict[str, Any]:
+    """Load a saved L2 event log from disk and return its payload."""
+
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def save_validation_report(
+    report: PrivacyValidationReport,
+    log_id: str,
+    directory: Optional[str] = None,
+) -> str:
+    """Persist a privacy validation report to disk and return the filename."""
+
+    config = get_config()
+    if directory is None:
+        directory = config.sessions_directory
+
+    Path(directory).mkdir(exist_ok=True)
+
+    timestamp = report.timestamp.strftime("%Y%m%d_%H%M%S")
+    filename = f"privacy_validation_{log_id}_{timestamp}.json"
+    filepath = Path(directory) / filename
+
+    with open(filepath, "w", encoding="utf-8") as f:
+        json.dump(report.to_dict(), f, ensure_ascii=False, indent=2)
+
+    return filename

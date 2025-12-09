@@ -8,6 +8,7 @@ __pycache__/
 # Local environments / large dirs
 iris_env/
 PLAYS/
+sessions/
 
 # Streamlit artifacts
-iris_demo/.streamlit/
+iris_demo/.streamlit/ 

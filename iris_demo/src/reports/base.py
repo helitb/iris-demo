@@ -5,13 +5,13 @@ Base report utilities and abstract class.
 from abc import ABC, abstractmethod
 from typing import Optional
 
-from ..schema import (
+from ..core.schema import (
     Session,
     SpeechEvent, AmbientAudioEvent, ProximityEvent, GazeEvent,
     PostureEvent, ObjectEvent,
     BehavioralEvent, InteractionEvent, ContextEvent,
 )
-from ..llm import LLMClient, get_config
+from ..core.llm import LLMClient, get_config
 
 
 def format_events_for_report(session: Session, max_layer1_events: int = 50) -> str:

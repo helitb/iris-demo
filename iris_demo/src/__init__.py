@@ -16,7 +16,7 @@ Modules:
 """
 
 # LLM client and config
-from .llm import (
+from .core.llm import (
     LLMClient,
     Config,
     get_config,
@@ -25,20 +25,23 @@ from .llm import (
 )
 
 # Generator
-from .generator import (
+from .core.scenario import (
     Scenario,
-    EventGenerator,
     load_scenario,
     load_scenarios_from_directory,
 )
+from .core import ObservationEngine
 
 # Storage
-from .storage import (
+from .core.storage import (
     serialize_session,
     deserialize_session,
     save_session,
     load_session,
     list_saved_sessions,
+    save_l2_event_log,
+    load_l2_event_log,
+    save_validation_report,
 )
 
 # Reports
@@ -48,8 +51,18 @@ from .reports import (
     REPORT_TYPES,
 )
 
+# Reconstruction
+from .core.layer1 import L1EventLog, load_l1_log_from_session
+from .core.privacy import (
+    PrivacyValidationReport,
+    validate_layer2_no_pii,
+    validate_l2_events,
+    anonymized_session,
+    layer1_only_session,
+)
+
 # Schema
-from .schema import (
+from .core.schema import (
     # Common
     ActorRole, ClassroomZone, Intensity,
     Actor, Location, EventBase,
@@ -84,7 +97,7 @@ __all__ = [
     "LLMClient", "Config", "get_config", "get_available_models", "AISUITE_AVAILABLE",
     
     # Generator
-    "Scenario", "EventGenerator", 
+    "Scenario", "ObservationEngine",
     "load_scenario", "load_scenarios_from_directory",
     
     # Storage
@@ -93,6 +106,14 @@ __all__ = [
     
     # Reports
     "generate_report", "format_events_for_report", "REPORT_TYPES",
+    
+    # Reconstruction
+    "L1EventLog", "load_l1_log_from_session",
+    "PrivacyValidationReport",
+    "validate_layer2_no_pii",
+    "save_l2_event_log", "load_l2_event_log",
+    "validate_l2_events", "save_validation_report",
+    "anonymized_session", "layer1_only_session",
     
     # Common
     "ActorRole", "ClassroomZone", "Intensity",

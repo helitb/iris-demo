@@ -608,8 +608,10 @@ class SessionMetadata:
     num_adults: int = 0
     
     # Processing info
+    layer1_llm_model: Optional[str] = None  # LLM model used to simulate L1 events
     layer1_model_versions: Optional[dict] = None  # {"asr": "...", "pose": "..."}
     layer2_llm_model: Optional[str] = None
+    reconstruction_llm_model: Optional[str] = None
 
 
 @dataclass
@@ -684,3 +686,4 @@ Layer2Event = Union[
 ]
 
 Event = Union[Layer1Event, Layer2Event]
+

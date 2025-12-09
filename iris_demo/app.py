@@ -28,7 +28,7 @@ from collections import defaultdict
 import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from iris import (
+from src import (
     # Config and LLM
     get_config, get_available_models, AISUITE_AVAILABLE,
     
@@ -46,6 +46,9 @@ from iris import (
     
     # Reports
     generate_report, REPORT_TYPES,
+    
+    # Reconstruction
+    L1EventLog, ReconstructionPipeline, load_l1_event_log,
 )
 
 
@@ -302,8 +305,17 @@ if "loaded_report" not in st.session_state:
 
 def format_timestamp(event) -> str:
     """Format event timestamp as offset from session start."""
-    if st.session_state.layer1_events:
+    # Get base timestamp from session metadata if available
+    base = None
+    
+    # Try to get from loaded session metadata first
+    if "session" in st.session_state and st.session_state.session:
+        base = st.session_state.session.metadata.start_time
+    # Fall back to first event in layer1_events
+    elif st.session_state.layer1_events:
         base = st.session_state.layer1_events[0].timestamp
+    
+    if base and event.timestamp:
         offset = (event.timestamp - base).total_seconds()
         mins = int(offset // 60)
         secs = int(offset % 60)
@@ -532,145 +544,254 @@ def main():
         
         st.divider()
         
-        # Scenario selection
-        st.header("📋 Scenario")
+        # Main tabs in sidebar
+        sidebar_tabs = st.tabs(["Generate", "Reconstruct"])
         
-        scenario_mode = st.radio("Source", ["Load from file", "Custom text"])
-        
-        scenario = None
-        is_custom_scenario = False
-        
-        if scenario_mode == "Load from file":
-            scenarios = load_scenarios_from_directory(str(scenarios_dir))
-            if scenarios:
-                selected_name = st.selectbox("Select scenario", list(scenarios.keys()))
-                scenario = scenarios[selected_name]
-                
-                with st.expander("Scenario details"):
-                    st.write(f"**Duration:** {scenario.duration_minutes} min")
-                    st.write(f"**Children:** {scenario.num_children}")
-                    st.write(f"**Adults:** {scenario.num_adults}")
-                    st.write(f"**Description:**")
-                    st.write(scenario.description)
-            else:
-                st.info("No scenarios found in scenarios/ folder")
-        
-        else:  # Custom text
-            custom_name = st.text_input("Scenario name", "Custom Scenario")
-            custom_duration = st.slider("Duration (minutes)", 5, 20, 10)
-            custom_children = st.slider("Number of children", 2, 10, 5)
-            custom_adults = st.slider("Number of adults", 1, 4, 2)
-            custom_description = st.text_area(
-                "Describe the scenario",
-                placeholder="Describe what happens in the classroom session...",
-                height=150
-            )
+        with sidebar_tabs[0]:  # Generate tab
+            # Scenario selection
+            st.header("📋 Scenario")
             
-            if custom_description:
-                scenario = Scenario(
-                    name=custom_name,
-                    description=custom_description,
-                    duration_minutes=custom_duration,
-                    num_children=custom_children,
-                    num_adults=custom_adults,
+            scenario_mode = st.radio("Source", ["Load from file", "Custom text"])
+            
+            scenario = None
+            is_custom_scenario = False
+            
+            if scenario_mode == "Load from file":
+                scenarios = load_scenarios_from_directory(str(scenarios_dir))
+                if scenarios:
+                    selected_name = st.selectbox("Select scenario", list(scenarios.keys()))
+                    scenario = scenarios[selected_name]
+                    
+                    with st.expander("Scenario details"):
+                        st.write(f"**Duration:** {scenario.duration_minutes} min")
+                        st.write(f"**Children:** {scenario.num_children}")
+                        st.write(f"**Adults:** {scenario.num_adults}")
+                        st.write(f"**Description:**")
+                        st.write(scenario.description)
+                else:
+                    st.info("No scenarios found in scenarios/ folder")
+            
+            else:  # Custom text
+                custom_name = st.text_input("Scenario name", "Custom Scenario")
+                custom_duration = st.slider("Duration (minutes)", 5, 20, 10)
+                custom_children = st.slider("Number of children", 2, 10, 5)
+                custom_adults = st.slider("Number of adults", 1, 4, 2)
+                custom_description = st.text_area(
+                    "Describe the scenario",
+                    placeholder="Describe what happens in the classroom session...",
+                    height=150
                 )
-                is_custom_scenario = True
                 
-                # Save custom scenario button
-                if st.button("💾 Save Scenario", use_container_width=True):
-                    try:
-                        filename = save_scenario(scenario, scenarios_dir)
-                        st.success(f"Saved: {filename}")
-                    except Exception as e:
-                        st.error(f"Error saving scenario: {e}")
-        
-        st.divider()
-        
-        st.header("📚 Scenario Archive")
-        if scenario_archive:
-            with st.expander("Browse saved sessions & reports", expanded=False):
-                for scenario_name in sorted(scenario_archive.keys()):
-                    entry = scenario_archive[scenario_name]
-                    scenario_sessions = sorted(
-                        entry["sessions"],
-                        key=lambda s: s.get("start_time") or "",
-                        reverse=True
+                if custom_description:
+                    scenario = Scenario(
+                        name=custom_name,
+                        description=custom_description,
+                        duration_minutes=custom_duration,
+                        num_children=custom_children,
+                        num_adults=custom_adults,
                     )
-                    report_groups = entry["reports_by_session"]
-                    total_reports = sum(len(r) for r in report_groups.values())
+                    is_custom_scenario = True
                     
-                    st.markdown(f"**{scenario_name}**")
-                    st.caption(f"{len(scenario_sessions)} session(s) · {total_reports} report(s)")
-                    
-                    if not scenario_sessions and total_reports == 0:
-                        st.write("No saved data yet.")
-                    
-                    for session_info in scenario_sessions:
-                        session_id = session_info.get("session_id") or "unknown"
-                        start_display = normalize_metadata_value(session_info.get("start_time"))[:16] or "unknown"
-                        layer_counts = f"{session_info.get('layer1_count', 0)} L1 / {session_info.get('layer2_count', 0)} L2"
-                        people_info = ""
-                        if session_info.get("num_children") is not None:
-                            people_info = f" · {session_info.get('num_children')} children"
-                        session_label = f"- Session {session_id}\n  {start_display} · {layer_counts}{people_info}"
-                        st.markdown(session_label)
-                        
-                        load_key = f"sidebar_archive_load_{session_info['path']}"
-                        if st.button("Load", key=load_key):
-                            try:
-                                loaded = load_session(session_info['path'])
-                                st.session_state.loaded_report = None
-                                st.session_state.session = loaded
-                                st.session_state.layer1_events = loaded.layer1_events
-                                st.session_state.layer2_events = loaded.layer2_events
-                                st.success(f"Loaded: {loaded.metadata.scenario_name}")
-                                st.rerun()
-                            except Exception as e:
-                                st.error(f"Error loading session: {e}")
-                        
-                        session_reports = report_groups.get(session_info.get("session_id")) or []
-                        for report_meta in sorted(
-                            session_reports,
-                            key=lambda r: normalize_metadata_value(r.get("generated")),
+                    # Save custom scenario button
+                    if st.button("💾 Save Scenario", use_container_width=True):
+                        try:
+                            filename = save_scenario(scenario, scenarios_dir)
+                            st.success(f"Saved: {filename}")
+                        except Exception as e:
+                            st.error(f"Error saving scenario: {e}")
+            
+            st.divider()
+            
+            st.header("📚 Scenario Archive")
+            if scenario_archive:
+                with st.expander("Browse saved sessions & reports", expanded=False):
+                    for scenario_name in sorted(scenario_archive.keys()):
+                        entry = scenario_archive[scenario_name]
+                        scenario_sessions = sorted(
+                            entry["sessions"],
+                            key=lambda s: s.get("start_time") or "",
                             reverse=True
-                        ):
-                            report_desc = (
-                                f"{report_meta.get('report_type', '?')} · "
-                                f"{normalize_metadata_value(report_meta.get('generated'))[:16]}"
-                            )
-                            open_key = f"sidebar_open_report_{report_meta['filename']}"
-                            if st.button(f"Open report: {report_desc}", key=open_key):
-                                st.session_state.loaded_report = report_meta
-                                st.rerun()
-                    
-                    orphan_reports = report_groups.get("__unlinked__", [])
-                    if orphan_reports:
-                        st.markdown("_Reports without linked session:_")
-                        for report_meta in sorted(
-                            orphan_reports,
-                            key=lambda r: normalize_metadata_value(r.get("generated")),
-                            reverse=True
-                        ):
-                            report_desc = (
-                                f"{report_meta.get('report_type', '?')} · "
-                                f"{normalize_metadata_value(report_meta.get('generated'))[:16]}"
-                            )
-                            orphan_key = f"sidebar_open_orphan_report_{report_meta['filename']}"
-                            if st.button(f"Open report: {report_desc}", key=orphan_key):
-                                st.session_state.loaded_report = report_meta
-                                st.rerun()
-        else:
-            st.info("No saved sessions or reports yet.")
+                        )
+                        report_groups = entry["reports_by_session"]
+                        total_reports = sum(len(r) for r in report_groups.values())
+                        
+                        st.markdown(f"**{scenario_name}**")
+                        st.caption(f"{len(scenario_sessions)} session(s) · {total_reports} report(s)")
+                        
+                        if not scenario_sessions and total_reports == 0:
+                            st.write("No saved data yet.")
+                        
+                        for session_info in scenario_sessions:
+                            session_id = session_info.get("session_id") or "unknown"
+                            start_display = normalize_metadata_value(session_info.get("start_time"))[:16] or "unknown"
+                            layer_counts = f"{session_info.get('layer1_count', 0)} L1 / {session_info.get('layer2_count', 0)} L2"
+                            people_info = ""
+                            if session_info.get("num_children") is not None:
+                                people_info = f" · {session_info.get('num_children')} children"
+                            session_label = f"- Session {session_id}\n  {start_display} · {layer_counts}{people_info}"
+                            st.markdown(session_label)
+                            
+                            load_key = f"sidebar_archive_load_{session_info['path']}"
+                            if st.button("Load", key=load_key):
+                                try:
+                                    loaded = load_session(session_info['path'])
+                                    st.session_state.loaded_report = None
+                                    st.session_state.session = loaded
+                                    st.session_state.layer1_events = loaded.layer1_events
+                                    st.session_state.layer2_events = loaded.layer2_events
+                                    st.success(f"Loaded: {loaded.metadata.scenario_name}")
+                                    st.rerun()
+                                except Exception as e:
+                                    st.error(f"Error loading session: {e}")
+                            
+                            session_reports = report_groups.get(session_info.get("session_id")) or []
+                            for report_meta in sorted(
+                                session_reports,
+                                key=lambda r: normalize_metadata_value(r.get("generated")),
+                                reverse=True
+                            ):
+                                report_desc = (
+                                    f"{report_meta.get('report_type', '?')} · "
+                                    f"{normalize_metadata_value(report_meta.get('generated'))[:16]}"
+                                )
+                                open_key = f"sidebar_open_report_{report_meta['filename']}"
+                                if st.button(f"Open report: {report_desc}", key=open_key):
+                                    st.session_state.loaded_report = report_meta
+                                    st.rerun()
+                        
+                        orphan_reports = report_groups.get("__unlinked__", [])
+                        if orphan_reports:
+                            st.markdown("_Reports without linked session:_")
+                            for report_meta in sorted(
+                                orphan_reports,
+                                key=lambda r: normalize_metadata_value(r.get("generated")),
+                                reverse=True
+                            ):
+                                report_desc = (
+                                    f"{report_meta.get('report_type', '?')} · "
+                                    f"{normalize_metadata_value(report_meta.get('generated'))[:16]}"
+                                )
+                                orphan_key = f"sidebar_open_orphan_report_{report_meta['filename']}"
+                                if st.button(f"Open report: {report_desc}", key=orphan_key):
+                                    st.session_state.loaded_report = report_meta
+                                    st.rerun()
+            else:
+                st.info("No saved sessions or reports yet.")
+            
+            st.divider()
+            
+            # Generate button
+            generate_disabled = not api_key_present or scenario is None or selected_model is None
+            if st.button("🚀 Generate Events", disabled=generate_disabled, use_container_width=True):
+                st.session_state.is_generating = True
+                st.session_state.layer1_events = []
+                st.session_state.layer2_events = []
+                st.session_state.session = None
         
-        st.divider()
-        
-        # Generate button
-        generate_disabled = not api_key_present or scenario is None or selected_model is None
-        if st.button("🚀 Generate Events", disabled=generate_disabled, use_container_width=True):
-            st.session_state.is_generating = True
-            st.session_state.layer1_events = []
-            st.session_state.layer2_events = []
-            st.session_state.session = None
+        with sidebar_tabs[1]:  # Reconstruct tab
+            st.header("🔬 Scenario Reconstruction")
+            st.markdown("""
+            Reconstruct scenarios from saved Layer 1 event logs.
+            
+            **Pipeline:**
+            1. Load L1 event log
+            2. Send L1 events to LLM → get L2 inferences
+            3. Send L2 events to LLM → reconstruct scenario
+            """)
+            
+            # Find saved L1 logs (now stored under a dedicated subfolder)
+            l1_logs_dir = sessions_dir / "l1_event_logs"
+            l1_logs = []
+            if l1_logs_dir.exists():
+                l1_logs = sorted(l1_logs_dir.glob("*_L1_events_*.json"))
+            
+            if l1_logs:
+                selected_log = st.selectbox(
+                    "Select L1 event log",
+                    l1_logs,
+                    format_func=lambda p: p.name
+                )
+                
+                st.caption(f"File: {selected_log.name}")
+                
+                if st.button("📊 Run Reconstruction Pipeline", use_container_width=True):
+                    with st.spinner("Loading L1 event log..."):
+                        try:
+                            l1_log = load_l1_event_log(str(selected_log))
+                            
+                            st.info(f"Loaded: {l1_log.scenario_name}")
+                            st.caption(f"{len(l1_log.l1_events)} L1 events, {l1_log.duration_seconds}s duration")
+                            
+                            # Run reconstruction pipeline
+                            pipeline = ReconstructionPipeline(model_id=selected_model)
+                            
+                            result = pipeline.full_reconstruction_pipeline(l1_log)
+                            
+                            # Display results
+                            st.success("✓ Reconstruction complete!")
+                            
+                            # Privacy Validation Section
+                            st.markdown("### 🔐 Privacy Validation")
+                            if 'validation_report' in result and result['validation_report']:
+                                report = result['validation_report']
+                                
+                                # Create three columns for metrics
+                                col1, col2, col3 = st.columns(3)
+                                with col1:
+                                    st.metric("Events Validated", report.events_validated)
+                                with col2:
+                                    st.metric("Events Passed", report.events_passed)
+                                with col3:
+                                    st.metric("Success Rate", f"{report.validation_success_rate * 100:.1f}%")
+                                
+                                # Show status
+                                if report.events_failed == 0:
+                                    st.success(f"✅ All L2 events pass privacy validation - No PII detected")
+                                else:
+                                    st.warning(f"⚠️ {report.events_failed} event(s) failed privacy validation")
+                                    with st.expander("View Failed Events", expanded=True):
+                                        for event_id, details in zip(report.failed_event_ids, report.failed_event_details):
+                                            st.write(f"**{event_id}**: {details}")
+                            
+                            st.markdown("### Layer 2 Reconstruction")
+                            st.metric("L2 Events Generated", len(result['l2_events']))
+                            
+                            with st.expander("View L2 Events", expanded=False):
+                                for evt in result['l2_events']:
+                                    if hasattr(evt, 'category'):  # BehavioralEvent
+                                        st.write(f"**{evt.category.value}**: {evt.description}")
+                                    elif hasattr(evt, 'initiator'):  # InteractionEvent
+                                        st.write(f"**Interaction**: {evt.initiator.id} → {evt.recipient.id}")
+                                    elif hasattr(evt, 'activity_type'):  # ContextEvent
+                                        st.write(f"**Context**: {evt.activity_type.value}")
+                            
+                            st.markdown("### Scenario Reconstruction")
+                            st.markdown(result['reconstructed_scenario'])
+                            
+                            # Download results
+                            results_json = json.dumps({
+                                "original_scenario": {
+                                    "name": l1_log.scenario_name,
+                                    "description": l1_log.scenario_description,
+                                },
+                                "l2_events_count": len(result['l2_events']),
+                                "reconstructed_scenario": result['reconstructed_scenario'],
+                            }, ensure_ascii=False, indent=2)
+                            
+                            st.download_button(
+                                "⬇️ Download Reconstruction Results",
+                                results_json,
+                                file_name=f"reconstruction_{l1_log.log_id}.json",
+                                mime="application/json",
+                                use_container_width=True
+                            )
+                        
+                        except Exception as e:
+                            st.error(f"Reconstruction error: {e}")
+                            import traceback
+                            st.code(traceback.format_exc())
+            else:
+                st.info("No L1 event logs found. Generate events first to create logs.")
     
     # Main content area
     col1, col2 = st.columns([3, 2])
