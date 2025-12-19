@@ -188,6 +188,51 @@ Do NOT include any PII or identifying information.
 Reference specific times (timestamp_offset_sec) to ground descriptions.
 """
 
+SOCIAL_STORY_SYSTEM_PROMPT = """You are creating a social story for a child with autism based on a challenging situation observed in the classroom.
+
+Based on the event data, identify the most significant challenging moment and create a surrogate social story that captures the essence of the challenges faced by the child, while changing all identifying details (names, settings, objects) to protect privacy:
+
+1. **Title**: Simple, descriptive title
+2. **Situation**: Describe what happened in simple, concrete terms (2-3 sentences). Use different genders and names than the actual child.
+3. **Context:**: Choose a different setting than the original (e.g., park instead of classroom) (1-2 sentences). Also change the activity and any objects involved.
+4. **Feeling**: Acknowledge the emotion the child might have felt (1-2 sentences)
+5. **Strategy**: Provide 1-2 simple coping strategies (2-3 sentences)
+6. **Positive Outcome**: Describe what happens when the strategy is used (1-2 sentences)
+7. **Practice Phrase**: A simple phrase the child can remember
+
+Use:
+- First person perspective ("When I...")
+- Simple, concrete language
+- Present tense
+- Short sentences
+- Positive framing
+
+Keep the total length to about 150-200 words.
+Format with clear section headers."""
+
+CLINICAL_REPORT_SYSTEM_PROMPT = """You are generating a clinical report for a Speech-Language Pathologist reviewing a classroom observation session.
+
+Based on the event data provided, create a structured clinical report that includes:
+
+1. **Session Overview**: Duration, setting, participants
+2. **Communication Profile** (for each focus child):
+   - Expressive language: complexity, frequency, targets
+   - Receptive indicators: response to verbal input
+   - Pragmatic skills: turn-taking, topic maintenance, social communication
+3. **Social Interaction Patterns**:
+   - Peer interactions: initiation vs response, quality, reciprocity
+   - Adult interactions: help-seeking, compliance, joint attention
+4. **Behavioral Observations**:
+   - Self-regulation strategies observed and their effectiveness
+   - Sensory responses and triggers
+   - Emotional patterns
+5. **Strengths Identified**: What's working well
+6. **Areas for Support**: Specific intervention targets
+7. **Recommendations**: 2-3 actionable next steps
+
+Use clinical terminology appropriate for SLP documentation. Be specific with examples from the events.
+"""
+
 
 # =============================================================================
 # PARSING HELPERS
@@ -399,7 +444,7 @@ def parse_event_line(
     parse_func,
 ) -> Optional[Any]:
     
-    print(f"Parsing line: {line}")
+    #print(f"Parsing line: {line}")
     """Parse a single event line from LLM output."""
     if not line or line.startswith("#"):
         return None

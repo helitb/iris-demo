@@ -29,9 +29,10 @@ from src import (
     load_l2_event_log,
     get_available_models,
 )
+from src.core.paths import resolve_sessions_directory
 
 CONFIG = Config.load()
-SESSIONS_DIR = Path(CONFIG.sessions_directory)
+SESSIONS_DIR = resolve_sessions_directory(CONFIG.sessions_directory)
 from src.core.layer2 import Layer2Sanitizer
 from src.core.session import Layer2Batch
 from src.core.storage import deserialize_event, serialize_event

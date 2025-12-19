@@ -1,18 +1,18 @@
 """
-Base report utilities and abstract class.
+Scenario report utilities 
 """
 
-from abc import ABC, abstractmethod
-from typing import Optional
+from typing import Optional, Literal
 
-from ..core.schema import (
+from .schema import (
     Session,
     SpeechEvent, AmbientAudioEvent, ProximityEvent, GazeEvent,
     PostureEvent, ObjectEvent,
     BehavioralEvent, InteractionEvent, ContextEvent,
 )
-from ..core.llm import LLMClient, get_config
-
+from .llm import LLMClient, get_config
+from .prompting import SOCIAL_STORY_SYSTEM_PROMPT, CLINICAL_REPORT_SYSTEM_PROMPT
+from .session import ReconstructionArtifact
 
 def format_events_for_report(session: Session, max_layer1_events: int = 50) -> str:
     """
@@ -103,29 +103,24 @@ Duration: {duration}
 Children: {session.metadata.num_children}, Adults: {session.metadata.num_adults}"""
 
 
-class ReportGenerator(ABC):
+class ReportGenerator:
     """
-    Abstract base class for report generators.
-    
-    Subclasses must implement:
-        - SYSTEM_PROMPT: The system prompt for the LLM
-        - report_type: The report type identifier
+    Scenario reports generator.
     """
     
-    SYSTEM_PROMPT: str = ""
-    report_type: str = ""
-    
-    def __init__(self, model: Optional[str] = None):
-        """
-        Initialize report generator.
-        
-        Args:
-            model: Optional model override. If None, uses config default.
-        """
-        self.client = LLMClient(model=model)
+    def __init__(self, 
+        client: LLMClient | None = None,
+        language: Literal["en", "he"] = "en",
+    ):
+        self.client = LLMClient() if client is None else client
         self.config = get_config()
+        self.language = language if language in {"en", "he"} else "en"
+        self.report_type = type
     
-    def generate(self, session: Session) -> str:
+    def generate(self, 
+        type: Literal["social_story", "slp_clinical"],
+        reconstruction: ReconstructionArtifact,
+        ) -> ReconstructionArtifact:
         """
         Generate a report from session data.
         
@@ -135,18 +130,28 @@ class ReportGenerator(ABC):
         Returns:
             Generated report text
         """
-        events_summary = format_events_for_report(session)
-        header = format_session_header(session)
+        if type == "social_story":
+            self.SYSTEM_PROMPT = SOCIAL_STORY_SYSTEM_PROMPT
+        elif type == "slp_clinical":
+            self.SYSTEM_PROMPT = CLINICAL_REPORT_SYSTEM_PROMPT
+        else:
+            raise ValueError(f"Unknown report type: {type}")
         
-        user_prompt = f"""{header}
+        language_instruction = (
+            "Write the report in Hebrew."
+            if self.language == "he"
+            else "Write the report in English."
+        )
 
-EVENT LOG:
-{events_summary}
+        
+        user_prompt = f"""{reconstruction.text}
 
+{language_instruction}
 Generate the report now:"""
         
-        return self.client.complete(
+        text = self.client.complete(
             self.SYSTEM_PROMPT,
             user_prompt,
             max_tokens=self.config.report_max_tokens,
         )
+        return ReconstructionArtifact(text=text.strip())

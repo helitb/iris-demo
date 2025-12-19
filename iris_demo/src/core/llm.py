@@ -55,8 +55,23 @@ class Config:
     def load(cls, config_path: Optional[str] = None) -> "Config":
         """Load configuration from YAML file."""
         if config_path is None:
-            # Look for config.yaml in the package directory
-            config_path = Path(__file__).parent.parent / "config.yaml"
+            # Look for config.yaml in a few sensible locations:
+            # 1) adjacent to the `src` package (for editable installs)
+            # 2) project root (two levels up from this file)
+            # 3) current working directory
+            candidates = [
+                Path(__file__).parent.parent / "config.yaml",
+                Path(__file__).parent.parent.parent / "config.yaml",
+                Path.cwd() / "config.yaml",
+            ]
+
+            # Pick the first one that exists, otherwise leave as the first candidate
+            for p in candidates:
+                if p.exists():
+                    config_path = p
+                    break
+            else:
+                config_path = candidates[0]
         
         if not Path(config_path).exists():
             # Return defaults if no config file

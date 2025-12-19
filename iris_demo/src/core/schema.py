@@ -612,6 +612,7 @@ class SessionMetadata:
     layer1_model_versions: Optional[dict] = None  # {"asr": "...", "pose": "..."}
     layer2_llm_model: Optional[str] = None
     reconstruction_llm_model: Optional[str] = None
+    language: str = "en"
 
 
 @dataclass

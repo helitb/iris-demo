@@ -11,6 +11,7 @@ from typing import Optional
 from .llm import get_config
 from .storage import serialize_event
 from .session import SessionHandle
+from .paths import resolve_sessions_directory
 
 
 class SessionStore:
@@ -18,7 +19,8 @@ class SessionStore:
 
     def __init__(self, base_directory: Optional[str] = None):
         config = get_config()
-        self.base_directory = Path(base_directory or config.sessions_directory)
+        target_directory = base_directory or config.sessions_directory
+        self.base_directory = resolve_sessions_directory(target_directory)
         self.base_directory.mkdir(parents=True, exist_ok=True)
 
     def _session_dir(self, session_id: str) -> Path:
@@ -93,6 +95,16 @@ class SessionStore:
             path = session_dir / "reconstruction.txt"
             with open(path, "w", encoding="utf-8") as f:
                 f.write(artifacts.reconstruction.text.strip() + "\n")
+
+        if artifacts.slp_report:
+            path = session_dir / "slp_report.txt"
+            with open(path, "w", encoding="utf-8") as f:
+                f.write(artifacts.slp_report.text.strip() + "\n")
+
+        if artifacts.social_story:
+            path = session_dir / "social_story.txt"
+            with open(path, "w", encoding="utf-8") as f:
+                f.write(artifacts.social_story.text.strip() + "\n")
 
         metadata_path = session_dir / "metadata.json"
         with open(metadata_path, "w", encoding="utf-8") as f:

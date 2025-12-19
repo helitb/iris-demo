@@ -10,7 +10,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Optional, Dict, Any, List
 
-from .llm import get_config
+from .paths import resolve_sessions_directory
 from .privacy import PrivacyValidationReport
 from .schema import (
     Actor, ActorRole, Location, ClassroomZone, Intensity,
@@ -454,6 +454,8 @@ def deserialize_session(data: Dict[str, Any]) -> Session:
             num_adults=meta.get("num_adults", 0),
             layer1_model_versions=meta.get("layer1_model_versions"),
             layer2_llm_model=meta.get("layer2_llm_model"),
+            reconstruction_llm_model=meta.get("reconstruction_llm_model"),
+            language=meta.get("language", "en")                        
         ),
         actors=[_parse_actor(a) for a in data.get("actors", [])],
     )
@@ -543,11 +545,7 @@ def save_l2_event_log(
 ) -> str:
     """Save Layer 2 events along with metadata and return the filename."""
 
-    config = get_config()
-    if directory is None:
-        directory = config.sessions_directory
-
-    base_dir = Path(directory)
+    base_dir = resolve_sessions_directory(directory)
     l2_dir = base_dir / "l2_event_logs"
     l2_dir.mkdir(parents=True, exist_ok=True)
 
@@ -583,15 +581,12 @@ def save_validation_report(
 ) -> str:
     """Persist a privacy validation report to disk and return the filename."""
 
-    config = get_config()
-    if directory is None:
-        directory = config.sessions_directory
-
-    Path(directory).mkdir(exist_ok=True)
+    base_dir = resolve_sessions_directory(directory)
+    base_dir.mkdir(exist_ok=True)
 
     timestamp = report.timestamp.strftime("%Y%m%d_%H%M%S")
     filename = f"privacy_validation_{log_id}_{timestamp}.json"
-    filepath = Path(directory) / filename
+    filepath = base_dir / filename
 
     with open(filepath, "w", encoding="utf-8") as f:
         json.dump(report.to_dict(), f, ensure_ascii=False, indent=2)

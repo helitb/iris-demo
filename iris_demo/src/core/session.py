@@ -50,6 +50,8 @@ class SessionArtifacts:
     layer2_raw: Optional[Layer2Batch] = None
     layer2_sanitized: Optional[Layer2Batch] = None
     reconstruction: Optional[ReconstructionArtifact] = None
+    slp_report: Optional[ReconstructionArtifact] = None
+    social_story: Optional[ReconstructionArtifact] = None
 
 
 @dataclass
@@ -93,3 +95,13 @@ class SessionHandle:
     def attach_reconstruction(self, artifact: ReconstructionArtifact) -> None:
         self.artifacts.reconstruction = artifact
         self.set_state("reconstructed")
+
+    def attach_social_story(self, artifact: ReconstructionArtifact) -> None:
+        self.artifacts.social_story = artifact
+        self.artifacts.social_story.type = "social_story"
+        self.set_state("social_story_generated")
+
+    def attach_slp_report(self, artifact: ReconstructionArtifact) -> None:
+        self.artifacts.slp_report = artifact
+        self.artifacts.slp_report.type = "slp_report"
+        self.set_state("slp_report_generated")

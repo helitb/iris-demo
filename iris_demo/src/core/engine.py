@@ -16,6 +16,7 @@ from .layer2 import Layer2Composer, Layer2Sanitizer
 from .session import SessionHandle, Layer1Batch
 from .session_store import SessionStore
 from .reconstructor import ScenarioReconstructor
+from .reports import ReportGenerator
 
 
 class ObservationEngine:
@@ -29,6 +30,7 @@ class ObservationEngine:
         layer1_source: Optional[Layer1Source] = None,
     ):
         self.llm_client = LLMClient(model_id)
+        self.artifact_language = artifact_lan if artifact_lan in {"en", "he"} else "en"
         self.layer1_source = layer1_source or LLMLayer1Source(self.llm_client)
         self.layer2_composer = Layer2Composer(self.llm_client)
         self.layer2_sanitizer = Layer2Sanitizer()
@@ -92,6 +94,13 @@ class ObservationEngine:
         handle.attach_reconstruction(artifact)
         handle.set_model("reconstruction_llm_model", self.llm_client.model)
 
+        # Generate reports
+        reportGenerator = ReportGenerator(client=self.llm_client, language=self.reconstructor.language)
+        slp_report = reportGenerator.generate(type = "slp_clinical", reconstruction=artifact)
+        social_story = reportGenerator.generate(type = "social_story", reconstruction=artifact)
+
+        handle.attach_slp_report(slp_report)  
+        handle.attach_social_story(social_story)  
         self.store.persist(handle)
         return artifact
 
@@ -121,7 +130,7 @@ class ObservationEngine:
         )
         context = ScenarioContext(scenario=scenario, source="replay")
         session_id = l1_log.log_id or uuid.uuid4().hex[:12]
-        handle = SessionHandle(session_id=session_id, context=context)
+        handle = SessionHandle(session_id=session_id, context=context, language=l1_log.language )
         handle.attach_layer1(self._build_layer1_batch(l1_log.l1_events))
         if l1_log.llm_model:
             handle.set_model("layer1_llm_model", l1_log.llm_model)

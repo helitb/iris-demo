@@ -9,6 +9,7 @@ __pycache__/
 iris_env/
 PLAYS/
 sessions/
+poc/
 
 # Streamlit artifacts
 iris_demo/.streamlit/ 

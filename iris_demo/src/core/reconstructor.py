@@ -66,7 +66,7 @@ class ScenarioReconstructor:
 LAYER 2 EVENTS (analyze these to reconstruct the scenario):
 {l2_formatted}
 
-Generate a detailed natural language reconstruction of the classroom events that occurred, based on the Layer 2 events.
+Generate a detailed natural language reconstruction of the scenario that occurred, based on the Layer 2 events.
 
 {language_instruction}"""
 

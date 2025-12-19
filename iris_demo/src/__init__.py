@@ -45,10 +45,8 @@ from .core.storage import (
 )
 
 # Reports
-from .reports import (
-    generate_report,
+from .core.reports import (
     format_events_for_report,
-    REPORT_TYPES,
 )
 
 # Reconstruction
@@ -105,7 +103,7 @@ __all__ = [
     "save_session", "load_session", "list_saved_sessions",
     
     # Reports
-    "generate_report", "format_events_for_report", "REPORT_TYPES",
+    "format_events_for_report",
     
     # Reconstruction
     "L1EventLog", "load_l1_log_from_session",
